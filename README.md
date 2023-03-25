@@ -51,6 +51,8 @@ docker run -it -v $HOME:/root --network host decisivedevops/cli-box zsh
 - To persist the config files for CLI tools, local `$HOME` directory is mounted as a volume inside the Docker container at `/root`.
 - Also, `--network host` runs the container on the same network as host.
 
+> Refer to [USAGE.md](USAGE.md) file to know how I am using the `cli-box` along with few other useful tools.
+
 ## Configuration
 
 `cli-box` uses a configuration file in YAML format to specify the base image, the tools to install, and their installation commands. Here's an example configuration file:
@@ -87,7 +89,8 @@ apps:
 	    - For example, If you are running this on `Apple M series` processors, `arm64` url is used and for `Intel` based machines, `amd64` url used.
 	- `install`: the installation commands for the tool.
 
-You can add more tools in this configuration file to suit your needs. [Here](APPLIST.md) is a list of the current CLI tools configured.
+You can add more tools in this configuration file to suit your requirements. [Here](APPLIST.md) is a list of the current CLI tools configured.
+
 ## Contributing
 
 If you find a bug or have a feature request, please open an issue or submit a pull request.

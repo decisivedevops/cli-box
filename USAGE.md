@@ -10,7 +10,7 @@
    - The alias is as follows:
 
    ```bash
-   alias j="just -f $HOME/personal-`cli-box`s/cli-box/justfile"
+   alias j="just -f $HOME/personal-projects/cli-box/justfile"
    ```
 1. **Transcrypt**: To securely store all my dotfiles on GitHub, I am using [Transcrypt](https://github.com/elasticdog/transcrypt).
 
