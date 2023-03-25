@@ -14,8 +14,8 @@
    ```
 1. **Transcrypt**: To securely store all my dotfiles on GitHub, I am using [Transcrypt](https://github.com/elasticdog/transcrypt).
 
-   - `Transcrypt` encrypts all the files in the `home` folder.
-   - The encrypted `home` folder is then mounted as `$HOME` folder inside the `cli-box` container, as configured in the `justfile`.
+   - `Transcrypt` encrypts all the files in the `home` directory when pushing updates to **GitHub**.
+   - `home` directory remains in plain-text format locally, and mounted as `$HOME` directory inside the `cli-box` container, as configured in the `justfile`.
    - This gives a central directory to store and persist all the configurations for various CLI tools, in both, inside the container and locally.
 2. **Mounting local directories**: I am also mounting my local `$HOME` directory under `/mnt` in the `cli-box` container.
 
