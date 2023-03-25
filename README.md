@@ -97,3 +97,7 @@ If you find a bug or have a feature request, please open an issue or submit a pu
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=decisivedevops/cli-box&type=Date)](https://star-history.com/#decisivedevops/cli-box&Date)
