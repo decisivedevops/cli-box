@@ -166,3 +166,15 @@ apps:
           && curl "${URL}" -o "session-manager-plugin.deb" \
           && dpkg -i session-manager-plugin.deb \
           && cd && rm -rf /tmp/*
+
+  helm:
+    changelog: https://github.com/helm/helm/releases
+    replacements: "VERSION=3.11.2"
+    amd64_url: "https://get.helm.sh/helm-v${VERSION}-linux-amd64.tar.gz"
+    arm64_url: "https://get.helm.sh/helm-v${VERSION}-linux-arm64.tar.gz"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o "output.tar.gz" \
+          && tar -xf ./output.tar.gz --strip-components=1 \
+          && mv helm /usr/local/bin/helm \
+          && cd && rm -rf /tmp/*
