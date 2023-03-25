@@ -1,0 +1,5 @@
+.github
+home/.kube/cache/*
+home/.kube/http-cache/*
+home/.granted/secure-storage-aws-sso-tokens/**
+home/.kube/kubens/**

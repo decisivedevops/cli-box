@@ -1,0 +1,168 @@
+image_name: decisivedevops/cli-box:latest
+
+base_image: bitnami/minideb:buster
+base_image_build: |
+  apt update \
+      && apt install -y vim ncurses-bin procps tmux \
+      && rm -rf /var/lib/apt/lists/*
+
+apps:
+  python:
+    changelog: https://docs.python.org/3/
+    replacements: "VERSION=3.11.2"
+    amd64_url: "${VERSION}"
+    arm64_url: "${VERSION}"
+    install: |
+      apt update && apt install -y build-essential libssl-dev zlib1g-dev \
+            libbz2-dev libreadline-dev libsqlite3-dev \
+            libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
+          && rm -rf /var/lib/apt/lists/* \
+          && git clone https://github.com/pyenv/pyenv.git /home/root/.pyenv \
+          && export PYENV_ROOT="/home/root/.pyenv" \
+          && command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH" \
+          && eval "$(pyenv init -)" \
+          && pyenv install ${URL} \
+          && pyenv global ${URL}
+
+  granted:
+    changelog: https://github.com/common-fate/granted/releases
+    replacements: "VERSION=0.9.0"
+    amd64_url: "releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_x86_64.tar.gz"
+    arm64_url: "releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_arm64.tar.gz"
+    install: |
+      curl -sSL ${URL} -o granted.tar.gz \
+          && tar -zxvf ./granted.tar.gz -C /usr/local/bin/ \
+          && rm granted.tar.gz
+
+  kubectl:
+    changelog: https://kubernetes.io/releases/patch-releases/
+    replacements: "VERSION=1.23.17 AMD64_OS=linux/amd64 ARM64_OS=linux/arm64"
+    amd64_url: "https://storage.googleapis.com/kubernetes-release/release/v${VERSION}/bin/${AMD64_OS}/kubectl"
+    arm64_url: "https://storage.googleapis.com/kubernetes-release/release/v${VERSION}/bin/${ARM64_OS}/kubectl"
+    install: |
+      curl -sSL ${URL} -o kubectl \
+          && chmod +x kubectl \
+          && mv kubectl /usr/local/bin/
+
+  aws-vault:
+    changelog: https://github.com/99designs/aws-vault/releases
+    replacements: "VERSION=7.1.2"
+    amd64_url: "https://github.com/99designs/aws-vault/releases/download/v${VERSION}/aws-vault-linux-amd64"
+    arm64_url: "https://github.com/99designs/aws-vault/releases/download/v${VERSION}/aws-vault-linux-arm64"
+    install: |
+      curl -sSL ${URL} -o aws-vault \
+          && chmod +x aws-vault \
+          && mv aws-vault /usr/local/bin/
+
+  aws:
+    changelog: https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
+    replacements: "VERSION=2.7.8"
+    amd64_url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${VERSION}.zip"
+    arm64_url: "https://awscli.amazonaws.com/awscli-exe-linux-aarch64-${VERSION}.zip"
+    install: |
+      curl -sSL ${URL} -o "awscliv2.zip" \
+          && unzip -qq awscliv2.zip \
+          && ./aws/install \
+          && rm -rf awscliv2.zip \
+              aws \
+              /usr/local/aws-cli/v2/*/dist/aws_completer \
+              /usr/local/aws-cli/v2/*/dist/awscli/data/ac.index \
+              /usr/local/aws-cli/v2/*/dist/awscli/examples
+
+  terraform:
+    changelog: https://releases.hashicorp.com/terraform/
+    replacements: "VERSION=1.1.4"
+    amd64_url: "https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip"
+    arm64_url: "https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_arm64.zip"
+    install: |
+      curl -sSL ${URL} -o "terraform.zip" \
+          && unzip -qq terraform.zip \
+          && rm terraform.zip \
+          && chmod a+x terraform \
+          && mv terraform /usr/local/bin/terraform
+
+  k9s:
+    changelog: https://github.com/derailed/k9s/releases
+    replacements: "VERSION=0.27.3"
+    amd64_url: "https://github.com/derailed/k9s/releases/download/v${VERSION}/k9s_Linux_amd64.tar.gz"
+    arm64_url: "https://github.com/derailed/k9s/releases/download/v${VERSION}/k9s_Linux_arm64.tar.gz"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o "k9s.tar.gz" \
+          && tar -zxvf ./k9s.tar.gz \
+          && chmod a+x k9s \
+          && mv k9s /usr/local/bin/k9s \
+          && cd && rm -rf /tmp/*
+
+  terrafile:
+    changelog: https://github.com/coretech/terrafile/releases
+    replacements: "VERSION=0.8"
+    amd64_url: "https://github.com/coretech/terrafile/releases/download/v${VERSION}/terrafile_${VERSION}_Linux_x86_64.tar.gz"
+    arm64_url: "https://github.com/coretech/terrafile/releases/download/v${VERSION}/terrafile_${VERSION}_Linux_arm64.tar.gz"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o "terrafile.tar.gz" \
+          && tar -zxvf ./terrafile.tar.gz \
+          && chmod a+x terrafile \
+          && mv terrafile /usr/local/bin/terrafile \
+          && cd && rm -rf /tmp/*
+
+  terragrunt-atlantis-config:
+    changelog: https://github.com/transcend-io/terragrunt-atlantis-config/releases
+    replacements: "VERSION=1.16.0"
+    amd64_url: "https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${VERSION}/terragrunt-atlantis-config_${VERSION}_linux_amd64.tar.gz"
+    arm64_url: "https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${VERSION}/terragrunt-atlantis-config_${VERSION}_linux_amd64.tar.gz"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o "output.tar.gz" \
+          && tar -xf ./output.tar.gz --strip-components=1 \
+          && mv terragrunt-atlantis-config* terragrunt-atlantis-config \
+          && mv terragrunt-atlantis-config /usr/local/bin/ \
+          && cd && rm -rf /tmp/*
+
+  kustomize:
+    changelog: https://github.com/kubernetes-sigs/kustomize/releases
+    replacements: "VERSION=5.0.1"
+    amd64_url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${VERSION}/kustomize_v${VERSION}_linux_amd64.tar.gz"
+    arm64_url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${VERSION}/kustomize_v${VERSION}_linux_arm64.tar.gz"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o "output.tar.gz" \
+          && tar -xf ./output.tar.gz \
+          && mv kustomize /usr/local/bin/kustomize \
+          && cd && rm -rf /tmp/*
+
+  terragrunt:
+    changelog: https://github.com/gruntwork-io/terragrunt/releases
+    replacements: "VERSION=0.43.0"
+    amd64_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_amd64"
+    arm64_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_arm64"
+    install: |
+      curl -sSL ${URL} -o "terragrunt" \
+          && chmod a+x terragrunt \
+          && mv terragrunt /usr/local/bin/terragrunt
+
+  kubectx:
+    changelog: https://github.com/ahmetb/kubectx/releases
+    replacements: "VERSION=0.9.4"
+    amd64_url: "--branch v${VERSION} https://github.com/ahmetb/kubectx"
+    arm64_url: "--branch v${VERSION} https://github.com/ahmetb/kubectx"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && git clone --depth 1 ${URL} \
+          && cd kubectx \
+          && chmod +x kubectx kubens \
+          && mv kubectx /usr/local/bin/ \
+          && mv kubens /usr/local/bin/ \
+          && cd && rm -rf /tmp/*
+
+  aws-session-manager-plugin:
+    changelog: https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#plugin-version-history
+    replacements: "VERSION=1.2.463.0"
+    amd64_url: "https://s3.amazonaws.com/session-manager-downloads/plugin/${VERSION}/ubuntu_64bit/session-manager-plugin.deb"
+    arm64_url: "https://s3.amazonaws.com/session-manager-downloads/plugin/${VERSION}/ubuntu_arm64/session-manager-plugin.deb"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl "${URL}" -o "session-manager-plugin.deb" \
+          && dpkg -i session-manager-plugin.deb \
+          && cd && rm -rf /tmp/*
