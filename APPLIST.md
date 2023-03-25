@@ -13,3 +13,4 @@
 | terragrunt | 0.43.0 | https://github.com/gruntwork-io/terragrunt/releases |
 | kubectx | 0.9.4 | https://github.com/ahmetb/kubectx/releases |
 | aws-session-manager-plugin | 1.2.463.0 | https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#plugin-version-history |
+| helm | 3.11.2 | https://github.com/helm/helm/releases |
