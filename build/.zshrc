@@ -75,8 +75,13 @@ echo -e "\033]6;1;bg;blue;brightness;33\a"
 
 # User configuration
 cat /home/root/motd
+
+# granted assume
 alias assume="source /usr/local/bin/assume"
+
+# kubectl
 alias k=kubectl
+
 # terraform alias
 alias tf=terraform
 alias tfp="terraform plan"
@@ -90,6 +95,9 @@ alias tff="terraform fmt -recursive"
 alias aws-vault='aws-vault --backend=file'
 
 # pyenv
-export PYENV_ROOT="/home/root/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="/home/root/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+# enhan/cd
+source /home/root/enhancd/init.sh

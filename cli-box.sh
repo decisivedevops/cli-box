@@ -22,15 +22,7 @@ esac
 # Define the Dockerfile contents as a variable
 build="
 FROM ${base_image}
-WORKDIR /home/root/
-RUN apt update && apt install -y curl unzip zsh git wget \
-    && chsh -s /usr/bin/zsh
-ADD https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh .
-RUN ZSH='/home/root/.oh-my-zsh' sh install.sh --unattended \
-    && git clone https://github.com/zsh-users/zsh-autosuggestions /home/root/.oh-my-zsh/plugins/zsh-autosuggestions \
-    && rm install.sh \
-    && sed -i '1 i\export ZDOTDIR=/home/root' /etc/zsh/zshrc
-RUN ${base_image_build}
+${base_image_build}
 "
 
 # Write the contents of the Dockerfile to a file
