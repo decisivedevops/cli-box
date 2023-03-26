@@ -5,3 +5,6 @@ home/.granted/secure-storage-aws-sso-tokens/**
 home/.kube/kubens/**
 home/.awsvault/keys/**
 home/.local/share/nvim/shada/main.shada
+home/.viminfo
+home/.zsh_history
+home/.cache/**
