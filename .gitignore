@@ -3,3 +3,5 @@ home/.kube/cache/*
 home/.kube/http-cache/*
 home/.granted/secure-storage-aws-sso-tokens/**
 home/.kube/kubens/**
+home/.awsvault/keys/**
+home/.local/share/nvim/shada/main.shada
