@@ -211,3 +211,14 @@ apps:
           && mv enhancd-* enhancd/ \
           && apt update && apt install -y fzf \
           && rm -rf /var/lib/apt/lists/*
+
+  stern:
+    changelog: https://github.com/stern/stern/releases
+    replacements: "VERSION=1.24.0"
+    amd64_url: "https://github.com/stern/stern/releases/download/v${VERSION}/stern_${VERSION}_linux_amd64.tar.gz"
+    arm64_url: "https://github.com/stern/stern/releases/download/v${VERSION}/stern_${VERSION}_linux_arm64.tar.gz"
+    install: |
+      curl -sSL ${URL} -o "/home/root/output.tar.gz" \
+          && tar -xf ./output.tar.gz \
+          && rm ./output.tar.gz \
+          && mv stern /usr/local/bin/
