@@ -13,6 +13,5 @@
 | kubectx | 0.9.4 | https://github.com/ahmetb/kubectx/releases |
 | aws-session-manager-plugin | 1.2.463.0 | https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#plugin-version-history |
 | helm | 3.11.2 | https://github.com/helm/helm/releases |
-| bit | 1.1.2 | https://github.com/chriswalz/bit/releases |
-| enhan/cd | 2.3.0 | https://github.com/b4b4r07/enhancd/tags |
 | stern | 1.24.0 | https://github.com/stern/stern/releases |
+| starship | 1.13.1 | https://github.com/starship/starship/releases |
