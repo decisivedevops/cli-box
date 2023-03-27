@@ -7,3 +7,5 @@ home/.awsvault/keys/**
 home/.local/share/nvim/shada/main.shada
 home/.viminfo
 home/.cache/**
+home/.ssh/known_hosts
+home/.ssh/known_hosts.old

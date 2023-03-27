@@ -8,14 +8,8 @@ base_image_build: |
   WORKDIR /home/root/
   ADD https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh .
   RUN apt update \
-      && apt install -y curl unzip zsh git vim ncurses-bin procps tmux \
-        # build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev \
-        # libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev \
-      && chsh -s /usr/bin/zsh \
-      && ZSH='/home/root/.oh-my-zsh' sh install.sh --unattended \
-      && git clone https://github.com/zsh-users/zsh-autosuggestions /home/root/.oh-my-zsh/plugins/zsh-autosuggestions \
-      && rm install.sh \
-      && sed -i '1 i\export ZDOTDIR=/home/root' /etc/zsh/zshrc \
+      && apt install -y curl unzip fish git vim ncurses-bin procps tmux \
+      && chsh -s /usr/bin/fish \
       && apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 apps:
@@ -187,30 +181,26 @@ apps:
           && mv helm /usr/local/bin/helm \
           && cd && rm -rf /tmp/*
 
-  bit:
-    changelog: https://github.com/chriswalz/bit/releases
-    replacements: "VERSION=1.1.2"
-    amd64_url: "https://github.com/chriswalz/bit/releases/download/v${VERSION}/bit_${VERSION}_linux_amd64.tar.gz"
-    arm64_url: "https://github.com/chriswalz/bit/releases/download/v${VERSION}/bit_${VERSION}_linux_arm64.tar.gz"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o "output.tar.gz" \
-          && tar -xf ./output.tar.gz \
-          && mv bit /usr/local/bin/bit \
-          && cd && rm -rf /tmp/*
+  # bit:
+  #   changelog: https://github.com/chriswalz/bit/releases
+  #   replacements: "VERSION=1.1.2"
+  #   amd64_url: "https://github.com/chriswalz/bit/releases/download/v${VERSION}/bit_${VERSION}_linux_amd64.tar.gz"
+  #   arm64_url: "https://github.com/chriswalz/bit/releases/download/v${VERSION}/bit_${VERSION}_linux_arm64.tar.gz"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o "output.tar.gz" \
+  #         && tar -xf ./output.tar.gz \
+  #         && mv bit /usr/local/bin/bit \
+  #         && cd && rm -rf /tmp/*
 
-  enhan/cd:
-    changelog: https://github.com/b4b4r07/enhancd/tags
-    replacements: "VERSION=2.3.0"
-    amd64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
-    arm64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
-    install: |
-      curl -sSL ${URL} -o "/home/root/output.tar.gz" \
-          && tar -xf ./output.tar.gz \
-          && rm ./output.tar.gz \
-          && mv enhancd-* enhancd/ \
-          && apt update && apt install -y fzf \
-          && rm -rf /var/lib/apt/lists/*
+  # enhan/cd:
+  #   changelog: https://github.com/b4b4r07/enhancd/tags
+  #   replacements: "VERSION=2.3.0"
+  #   amd64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
+  #   arm64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sLO https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | ls -l #|source fisher.fish && fisher install jorgebucaran/fisher
 
   stern:
     changelog: https://github.com/stern/stern/releases
@@ -222,3 +212,14 @@ apps:
           && tar -xf ./output.tar.gz \
           && rm ./output.tar.gz \
           && mv stern /usr/local/bin/
+
+  starship:
+    changelog: https://github.com/starship/starship/releases
+    replacements: "VERSION=1.13.1"
+    amd64_url: "https://github.com/starship/starship/releases/download/v${VERSION}/starship-x86_64-unknown-linux-musl.tar.gz"
+    arm64_url: "https://github.com/starship/starship/releases/download/v${VERSION}/starship-aarch64-unknown-linux-musl.tar.gz"
+    install: |
+      curl -sSL ${URL} -o "/home/root/output.tar.gz" \
+          && tar -xf ./output.tar.gz \
+          && rm ./output.tar.gz \
+          && mv starship /usr/local/bin/
