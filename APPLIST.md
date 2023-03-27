@@ -15,3 +15,4 @@
 | helm | 3.11.2 | https://github.com/helm/helm/releases |
 | bit | 1.1.2 | https://github.com/chriswalz/bit/releases |
 | enhan/cd | 2.3.0 | https://github.com/b4b4r07/enhancd/tags |
+| stern | 1.24.0 | https://github.com/stern/stern/releases |
