@@ -9,3 +9,4 @@ home/.viminfo
 home/.cache/**
 home/.ssh/known_hosts
 home/.ssh/known_hosts.old
+home/.local/share/fish/fish_history

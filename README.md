@@ -45,7 +45,7 @@ cd cli-box
 - Once the Docker image is build, you can access the Docker shell and installed CLI tools using:
 
 ```bash
-docker run -it -v $HOME:/root --network host decisivedevops/cli-box zsh
+docker run -it -v $HOME:/root --network host decisivedevops/cli-box fish
 ```
 
 - To persist the config files for CLI tools, local `$HOME` directory is mounted as a volume inside the Docker container at `/root`.
