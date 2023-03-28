@@ -6,9 +6,8 @@ base_image_build: |
   ARG DEBIAN_FRONTEND=noninteractive
   ENV TZ=Asia/Kolkata
   WORKDIR /home/root/
-  ADD https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh .
   RUN apt update \
-      && apt install -y curl unzip fish git vim ncurses-bin procps tmux \
+      && apt install -y --no-install-recommends ca-certificates curl unzip fish git vim ncurses-bin tmux \
       && chsh -s /usr/bin/fish \
       && apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
@@ -29,8 +28,8 @@ apps:
   granted:
     changelog: https://github.com/common-fate/granted/releases
     replacements: "VERSION=0.9.0"
-    amd64_url: "releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_x86_64.tar.gz"
-    arm64_url: "releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_arm64.tar.gz"
+    amd64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_x86_64.tar.gz"
+    arm64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_arm64.tar.gz"
     install: |
       curl -sSL ${URL} -o granted.tar.gz \
           && tar -zxvf ./granted.tar.gz -C /usr/local/bin/ \
@@ -192,15 +191,6 @@ apps:
   #         && tar -xf ./output.tar.gz \
   #         && mv bit /usr/local/bin/bit \
   #         && cd && rm -rf /tmp/*
-
-  # enhan/cd:
-  #   changelog: https://github.com/b4b4r07/enhancd/tags
-  #   replacements: "VERSION=2.3.0"
-  #   amd64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
-  #   arm64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
-  #   install: |
-  #     mkdir -p /tmp && cd /tmp \
-  #         && curl -sLO https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | ls -l #|source fisher.fish && fisher install jorgebucaran/fisher
 
   stern:
     changelog: https://github.com/stern/stern/releases

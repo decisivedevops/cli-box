@@ -58,10 +58,15 @@ function main {
         download_url=$(replace_variables "$url" "$replacements")
         install_tool "${version}" "${download_url}" "${install_commands}"
     done
-    printf "COPY build/motd . \n" >>${dockerfile}
-    printf "COPY build/starship/ . \n" >>${dockerfile}
-    printf "COPY build/fish/ /etc/fish/\n" >>${dockerfile}
-    printf "COPY build/tmux/ ./ \nWORKDIR /root \n" >>${dockerfile}
+    after_build="
+    COPY build/motd .
+    COPY build/starship/ .
+    COPY build/fish/ /etc/fish/
+    COPY build/tmux/ .
+    WORKDIR /root
+    "
+    # Write the contents of the Dockerfile to a file
+    printf "%s\n" "${after_build}" >>${dockerfile}
 
     docker build -t ${image_name} -f ${dockerfile} .
     rm ${dockerfile}

@@ -1,3 +1,6 @@
+# fish config
+set -g fish_greeting
+
 # User configuration
 cat /home/root/motd
 
