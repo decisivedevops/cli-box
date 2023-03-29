@@ -68,7 +68,7 @@ function main {
     # Write the contents of the Dockerfile to a file
     printf "%s\n" "${after_build}" >>${dockerfile}
 
-    docker build -t ${image_name} -f ${dockerfile} .
+    docker build -t ${image_name}:${arch}-latest -f ${dockerfile} .
     rm ${dockerfile}
 }
 

@@ -1,4 +1,4 @@
-image_name: decisivedevops/cli-box:latest
+image_name: decisivedevops/cli-box
 base_image: ubuntu:22.04
 base_image_build: |
   ARG DEBIAN_FRONTEND=noninteractive

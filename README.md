@@ -59,7 +59,7 @@ docker run -it -v $HOME:/root --network host decisivedevops/cli-box fish
 
 
 ```yaml
-image_name: decisivedevops/cli-box:latest
+image_name: decisivedevops/cli-box
 
 base_image: bitnami/minideb:buster
 base_image_build: |
