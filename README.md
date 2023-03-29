@@ -78,7 +78,7 @@ apps:
           && mv kubectl /usr/local/bin/
 ```
 #### Configuration Syntax
-- `image_name`: the name and tag of the Docker image to build.
+- `image_name`: the name of the Docker image to build.
 - `base_image`: the base image to use for the Docker image.
 - `base_image_build`: the commands to run on the base image before installing the tools.
 - `apps`: a list of tools to install, with their installation commands and URLs for different architectures.
