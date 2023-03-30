@@ -12,8 +12,7 @@ dcli:
         --network host decisivedevops/cli-box:${arch}-latest fish -c "tmux -f /home/root/tmux.conf"
 
 build:
-  @{{justfile_directory()}}/cli-box.sh \
-    && docker system prune -f
+  @{{justfile_directory()}}/cli-box.sh
 
 build-push:
     #!/usr/bin/env bash

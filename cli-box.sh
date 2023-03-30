@@ -70,6 +70,13 @@ function main {
 
     docker build -t ${image_name}:${arch}-latest -f ${dockerfile} .
     rm ${dockerfile}
+    prompt="
+--------------------------------------------------------------
+You can access the CLI tools using below Docker run command.
+
+docker run -it -v $HOME:/root --network host decisivedevops/cli-box:${arch}-latest fish
+    "
+    printf "%s\n" "${prompt}"
 }
 
 # Call main function

@@ -14,3 +14,4 @@ home/.config/fish
 home/.local/share/fish
 home/.launchpadlib
 home/.python_history
+home/.aws/credentials
