@@ -74,7 +74,7 @@ function main {
 
 	# Print prompt for user
 	readonly PROMPT="
---------------------------------------------------------------
+--------------------------------------------------------------------
 You can access the CLI tools using the following Docker run command:
 
 docker run -it -v $HOME:/root --network host decisivedevops/cli-box:${ARCH}-latest fish
