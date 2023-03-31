@@ -44,12 +44,7 @@ docker run -it -v $HOME:/root --network host decisivedevops/cli-box:arm64-latest
 
 ### Requirements
 
-To build `cli-box`, you need to have `Docker` and `yq` installed on your system. Here's how to install them:
-
-|  Name  | Description                                                  |
-| :----: | :----------------------------------------------------------- |
-| Docker | Follow the instructions on the [here](https://github.com/docker/docker-install) to install Docker. |
-|   yq   | `yq` is a command-line YAML processor that `cli-box` uses to parse the configuration file. <br />Follow the [instructions](https://github.com/mikefarah/yq#install) to install `yq`. |
+To build `cli-box`, you need to have `Docker` and `yq` installed on your system. Here's how to install them: [PREREQUISITES](PREREQUISITES.md)
 
 ### Build Steps
 
