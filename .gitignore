@@ -15,3 +15,5 @@ home/.local/share/fish
 home/.launchpadlib
 home/.python_history
 home/.aws/credentials
+aws2tf-0.1.4
+home/.terraform.d

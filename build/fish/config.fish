@@ -22,14 +22,6 @@ alias tff="terraform fmt -recursive"
 # aws-vault
 alias aws-vault='aws-vault --backend=file'
 
-# pyenv
-# export PYENV_ROOT="/home/root/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
-# enhan/cd
-# source /home/root/enhancd/init.sh
-
 # starship
 export STARSHIP_CONFIG=/home/root/starship.toml
 starship init fish | source

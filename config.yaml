@@ -42,7 +42,7 @@ apps:
 
   aws:
     changelog: https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
-    replacements: "VERSION=2.7.8"
+    replacements: "VERSION=2.9.0"
     amd64_url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${VERSION}.zip"
     arm64_url: "https://awscli.amazonaws.com/awscli-exe-linux-aarch64-${VERSION}.zip"
     install: |
@@ -55,17 +55,16 @@ apps:
               /usr/local/aws-cli/v2/*/dist/awscli/data/ac.index \
               /usr/local/aws-cli/v2/*/dist/awscli/examples
 
-  terraform:
-    changelog: https://releases.hashicorp.com/terraform/
-    replacements: "VERSION=1.1.4"
-    amd64_url: "https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip"
-    arm64_url: "https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_arm64.zip"
+  tfenv:
+    changelog: https://github.com/tfutils/tfenv/releases
+    replacements: "VERSION=v3.0.0"
+    amd64_url: "--branch ${VERSION} https://github.com/tfutils/tfenv.git"
+    arm64_url: "--branch ${VERSION} https://github.com/tfutils/tfenv.git"
     install: |
-      curl -sSL ${URL} -o "terraform.zip" \
-          && unzip -qq terraform.zip \
-          && rm terraform.zip \
-          && chmod a+x terraform \
-          && mv terraform /usr/local/bin/terraform
+      git clone --depth=1 ${URL} /home/root/.tfenv \
+          && ln -s /home/root/.tfenv/bin/* /usr/local/bin \
+          && tfenv install 1.1.4 \
+          && tfenv use 1.1.4
 
   k9s:
     changelog: https://github.com/derailed/k9s/releases
@@ -186,28 +185,3 @@ apps:
           && tar -xf ./output.tar.gz \
           && rm ./output.tar.gz \
           && mv starship /usr/local/bin/
-
-  # bit:
-  #   changelog: https://github.com/chriswalz/bit/releases
-  #   replacements: "VERSION=1.1.2"
-  #   amd64_url: "https://github.com/chriswalz/bit/releases/download/v${VERSION}/bit_${VERSION}_linux_amd64.tar.gz"
-  #   arm64_url: "https://github.com/chriswalz/bit/releases/download/v${VERSION}/bit_${VERSION}_linux_arm64.tar.gz"
-  #   install: |
-  #     mkdir -p /tmp && cd /tmp \
-  #         && curl -sSL ${URL} -o "output.tar.gz" \
-  #         && tar -xf ./output.tar.gz \
-  #         && mv bit /usr/local/bin/bit \
-  #         && cd && rm -rf /tmp/*
-
-  # python:
-  #   changelog: https://docs.python.org/3/
-  #   replacements: "VERSION=3.11.2"
-  #   amd64_url: "${VERSION}"
-  #   arm64_url: "${VERSION}"
-  #   install: |
-  #     git clone https://github.com/pyenv/pyenv.git /home/root/.pyenv \
-  #         && export PYENV_ROOT="/home/root/.pyenv" \
-  #         && command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH" \
-  #         && eval "$(pyenv init -)" \
-  #         && pyenv install ${URL} \
-  #         && pyenv global ${URL}
