@@ -14,9 +14,12 @@ image_name=$(yq e '.image_name' "${config_file}")
 
 # Detect the architecture of the system
 case "$(uname -m)" in
-    aarch64 | arm64) arch="arm64" ;;
-    amd64 | x86-64 | x86_64) arch="amd64" ;;
-    *) echo "Unsupported arch: ${ARCH}"; exit 1 ;;
+aarch64 | arm64) arch="arm64" ;;
+amd64 | x86-64 | x86_64) arch="amd64" ;;
+*)
+	echo "Unsupported arch: ${ARCH}"
+	exit 1
+	;;
 esac
 
 # Define the Dockerfile contents as a variable
@@ -30,53 +33,53 @@ printf "%s\n" "${build}" >${dockerfile}
 
 # Function to install a tool
 function install_tool {
-    binary_url=$(echo "${2}" | sed "s/\${VERSION}/${1}/g")
-    install_commands=$(echo "${3}" | sed "s#\${URL}#${binary_url}#g")
-    # Build app image
-    printf 'RUN %s\n' "$install_commands" >>${dockerfile}
+	binary_url=$(echo "${2}" | sed "s/\${VERSION}/${1}/g")
+	install_commands=$(echo "${3}" | sed "s#\${URL}#${binary_url}#g")
+	# Build app image
+	printf 'RUN %s\n' "$install_commands" >>${dockerfile}
 }
 
 # Function to replace variables in a string
 function replace_variables {
-    local str="$1"
-    local replacements="$2"
-    local varname varval
-    for pair in ${replacements}; do
-        IFS='=' read -r varname varval <<< "$pair"
-        str=$(echo "$str" | sed "s#\${${varname}}#${varval}#g")
-    done
-    echo "$str"
+	local str="$1"
+	local replacements="$2"
+	local varname varval
+	for pair in ${replacements}; do
+		IFS='=' read -r varname varval <<<"$pair"
+		str=$(echo "$str" | sed "s#\${${varname}}#${varval}#g")
+	done
+	echo "$str"
 }
 
 # Main function
 function main {
-    # Install apps
-    for app in $(yq e '.apps | keys | .[]' "${config_file}"); do
-        url=$(yq e ".apps.${app}.${arch}_url" "${config_file}")
-        replacements=$(yq e ".apps.${app}.replacements" "${config_file}")
-        install_commands=$(yq e ".apps.${app}.install" "${config_file}")
-        download_url=$(replace_variables "$url" "$replacements")
-        install_tool "${version}" "${download_url}" "${install_commands}"
-    done
-    after_build="
+	# Install apps
+	for app in $(yq e '.apps | keys | .[]' "${config_file}"); do
+		url=$(yq e ".apps.${app}.${arch}_url" "${config_file}")
+		replacements=$(yq e ".apps.${app}.replacements" "${config_file}")
+		install_commands=$(yq e ".apps.${app}.install" "${config_file}")
+		download_url=$(replace_variables "$url" "$replacements")
+		install_tool "${version}" "${download_url}" "${install_commands}"
+	done
+	after_build="
     COPY build/motd .
     COPY build/starship/ .
     COPY build/fish/ /etc/fish/
     COPY build/tmux/ .
     WORKDIR /root
     "
-    # Write the contents of the Dockerfile to a file
-    printf "%s\n" "${after_build}" >>${dockerfile}
+	# Write the contents of the Dockerfile to a file
+	printf "%s\n" "${after_build}" >>${dockerfile}
 
-    docker build -t ${image_name}:${arch}-latest -f ${dockerfile} .
-    rm ${dockerfile}
-    prompt="
+	docker build -t "${image_name}:${arch}"-latest -f ${dockerfile} .
+	rm ${dockerfile}
+	prompt="
 --------------------------------------------------------------
 You can access the CLI tools using below Docker run command.
 
 docker run -it -v $HOME:/root --network host decisivedevops/cli-box:${arch}-latest fish
     "
-    printf "%s\n" "${prompt}"
+	printf "%s\n" "${prompt}"
 }
 
 # Call main function
