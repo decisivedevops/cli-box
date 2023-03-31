@@ -23,14 +23,22 @@ The script uses a configuration file in YAML format, where you can specify the b
 ## Usage
 
   - To access the `cli-box`, you can run the pre-built Docker images.
+  - For `amd64`, `x86_64` system:
 
-| System Architecture |                      Docker Run Command                      |
-| :-----------------: | :----------------------------------------------------------: |
-|  `amd64`, `x86_64`  | `docker run -it -v $HOME:/root --network host decisivedevops/cli-box:amd64-latest fish` |
-| `aarch64` , `arm64` | `docker run -it -v $HOME:/root --network host decisivedevops/cli-box:arm64-latest fish` |
+```bash
+docker run -it -v $HOME:/root --network host decisivedevops/cli-box:amd64-latest fish
+```
+
+- For `aarch64` , `arm64` system:
+
+```bash
+docker run -it -v $HOME:/root --network host decisivedevops/cli-box:arm64-latest fish
+```
 
   - To persist the config files for CLI tools, local `$HOME` directory is mounted as a volume inside the Docker container at `/root`.
   - Also, `--network host` runs the container on the same network as host.
+
+>  [Here](APPLIST.md) is a list of the current CLI tools available.
 
 ## Build
 
@@ -40,8 +48,8 @@ To build `cli-box`, you need to have `Docker` and `yq` installed on your system.
 
 |  Name  | Description                                                  |
 | :----: | :----------------------------------------------------------- |
-| Docker | Follow the instructions on the [Docker website](https://docs.docker.com/engine/install/) to install Docker on your system. |
-|   yq   | `yq` is a command-line YAML processor that `cli-box` uses to parse the configuration file. Follow the instructions on the [yq website](https://github.com/mikefarah/yq#install) to install `yq` on your system. |
+| Docker | Follow the instructions on the [here](https://github.com/docker/docker-install) to install Docker. |
+|   yq   | `yq` is a command-line YAML processor that `cli-box` uses to parse the configuration file. <br />Follow the [instructions](https://github.com/mikefarah/yq#install) to install `yq`. |
 
 ### Build Steps
 
@@ -54,12 +62,12 @@ git clone https://github.com/decisivedevops/cli-box.git
 ```bash
 cd cli-box
 ```
-
+- You can update configuration file [config.yaml](config.yaml) to add tools you require.
 - To build `cli-box`, simply run the script:
 ```bash
 ./cli-box.sh
 ```
-- This will build a Docker image using the configuration file [config.yaml](config.yaml).
+
 - Once the Docker image is build, the script outputs a Docker command to access the CLI tools.
 
 > Refer to [USAGE.md](USAGE.md) file to know how I am using the `cli-box` along with few other useful tools.
@@ -100,7 +108,7 @@ apps:
 	    - For example, If you are running this on `Apple M series` processors, `arm64` url is used and for `Intel` based machines, `amd64` url used.
 	- `install`: the installation commands for the tool.
 
-> You can add more tools in this configuration file to suit your requirements. [Here](APPLIST.md) is a list of the current CLI tools configured.
+> You can add more tools in this configuration file to suit your requirements.
 
 ## Contributing
 
