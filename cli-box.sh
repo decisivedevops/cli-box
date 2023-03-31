@@ -1,42 +1,40 @@
 #!/bin/bash
 
-# Exit immediately if any command exits with a non-zero status
-set -e
+set -euo pipefail  # Enable strict mode
 
 # Config file path and Dockerfile path
-config_file="config.yaml"
-dockerfile="Dockerfile.build"
+readonly CONFIG_FILE="config.yaml"
+readonly DOCKERFILE="Dockerfile.build"
 
 # Get base image name, base image for build, and final image name from config file
-base_image=$(yq e '.base_image' "${config_file}")
-base_image_build=$(yq e '.base_image_build' "${config_file}")
-image_name=$(yq e '.image_name' "${config_file}")
+readonly BASE_IMAGE="$(yq e '.base_image' "${CONFIG_FILE}")"
+readonly BASE_IMAGE_BUILD="$(yq e '.base_image_build' "${CONFIG_FILE}")"
+readonly IMAGE_NAME="$(yq e '.image_name' "${CONFIG_FILE}")"
 
 # Detect the architecture of the system
 case "$(uname -m)" in
-aarch64 | arm64) arch="arm64" ;;
-amd64 | x86-64 | x86_64) arch="amd64" ;;
+aarch64 | arm64) readonly ARCH="arm64" ;;
+amd64 | x86-64 | x86_64) readonly ARCH="amd64" ;;
 *)
-	echo "Unsupported arch: ${ARCH}"
+	echo "Unsupported arch: ${ARCH}" >&2
 	exit 1
 	;;
 esac
 
 # Define the Dockerfile contents as a variable
-build="
-FROM ${base_image}
-${base_image_build}
+DOCKERFILE_CONTENTS="
+FROM ${BASE_IMAGE}
+${BASE_IMAGE_BUILD}
 "
 
 # Write the contents of the Dockerfile to a file
-printf "%s\n" "${build}" >${dockerfile}
+printf "%s\n" "${DOCKERFILE_CONTENTS}" >${DOCKERFILE}
 
 # Function to install a tool
 function install_tool {
-	binary_url=$(echo "${2}" | sed "s/\${VERSION}/${1}/g")
-	install_commands=$(echo "${3}" | sed "s#\${URL}#${binary_url}#g")
+	install_commands=$(echo "${2}" | sed "s#\${URL}#${1}#g")
 	# Build app image
-	printf 'RUN %s\n' "$install_commands" >>${dockerfile}
+	printf 'RUN %s\n' "$install_commands" >>${DOCKERFILE}
 }
 
 # Function to replace variables in a string
@@ -54,12 +52,12 @@ function replace_variables {
 # Main function
 function main {
 	# Install apps
-	for app in $(yq e '.apps | keys | .[]' "${config_file}"); do
-		url=$(yq e ".apps.${app}.${arch}_url" "${config_file}")
-		replacements=$(yq e ".apps.${app}.replacements" "${config_file}")
-		install_commands=$(yq e ".apps.${app}.install" "${config_file}")
+	for app in $(yq e '.apps | keys | .[]' "${CONFIG_FILE}"); do
+		url=$(yq e ".apps.${app}.${ARCH}_url" "${CONFIG_FILE}")
+		replacements=$(yq e ".apps.${app}.replacements" "${CONFIG_FILE}")
+		install_commands=$(yq e ".apps.${app}.install" "${CONFIG_FILE}")
 		download_url=$(replace_variables "$url" "$replacements")
-		install_tool "${version}" "${download_url}" "${install_commands}"
+		install_tool "${download_url}" "${install_commands}"
 	done
 	after_build="
     COPY build/motd .
@@ -69,17 +67,19 @@ function main {
     WORKDIR /root
     "
 	# Write the contents of the Dockerfile to a file
-	printf "%s\n" "${after_build}" >>${dockerfile}
+	printf "%s\n" "${after_build}" >>${DOCKERFILE}
 
-	docker build -t "${image_name}:${arch}"-latest -f ${dockerfile} .
-	rm ${dockerfile}
-	prompt="
+	docker build -t "${IMAGE_NAME}:${ARCH}"-latest -f ${DOCKERFILE} .
+	rm ${DOCKERFILE}
+
+	# Print prompt for user
+	readonly PROMPT="
 --------------------------------------------------------------
-You can access the CLI tools using below Docker run command.
+You can access the CLI tools using the following Docker run command:
 
-docker run -it -v $HOME:/root --network host decisivedevops/cli-box:${arch}-latest fish
-    "
-	printf "%s\n" "${prompt}"
+docker run -it -v $HOME:/root --network host decisivedevops/cli-box:${ARCH}-latest fish
+"
+	printf "%s\n" "${PROMPT}"
 }
 
 # Call main function
