@@ -14,8 +14,7 @@ app_names=$(yq e '.apps | keys | .[]' "$YAML_FILE")
 
 # Loop through each app and extract the required information
 for app_name in $app_names; do
-  version=$(yq e ".apps.$app_name.replacements | match(\"VERSION=[^\"]+\").string | sed 's/VERSION=//'")
-#   version=$(yq e ".apps.$app_name.replacements | match(\"VERSION=([0-9.]+)\").captures[0].string" "$YAML_FILE")
+  version=$(yq e ".apps.$app_name.replacements | match(\"VERSION=([0-9.]+)\").captures[0].string" "$YAML_FILE")
   changelog=$(yq e ".apps.$app_name.changelog" "$YAML_FILE")
 
   # Add the app information to the ${APPLIST} file
