@@ -12,7 +12,7 @@ base_image_build: |
 apps:
   granted:
     changelog: https://github.com/common-fate/granted/releases
-    replacements: "VERSION=0.9.1"
+    replacements: "VERSION=0.9.0"
     amd64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_x86_64.tar.gz"
     arm64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_arm64.tar.gz"
     install: |
