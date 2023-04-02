@@ -5,8 +5,12 @@ base_image_build: |
   ENV TZ=Asia/Kolkata
   WORKDIR /home/root/
   RUN apt update \
-      && apt install -y git vim curl unzip fish ncurses-bin less jq tmux \
+      && apt install -y git vim curl unzip fish ncurses-bin less jq tmux npm \
       && chsh -s /usr/bin/fish \
+      && npm update -g npm \
+      && npm cache clean -f \
+      && npm install -g n \
+      && n stable \
       && apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 apps:
