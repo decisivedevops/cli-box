@@ -185,3 +185,15 @@ apps:
           && tar -xf ./output.tar.gz \
           && rm ./output.tar.gz \
           && mv starship /usr/local/bin/
+
+  k8sgpt:
+    changelog: https://github.com/k8sgpt-ai/k8sgpt/releases/
+    replacements: "VERSION=0.1.6"
+    amd64_url: "https://github.com/k8sgpt-ai/k8sgpt/releases/download/v${VERSION}/k8sgpt_Linux_x86_64.tar.gz"
+    arm64_url: "https://github.com/k8sgpt-ai/k8sgpt/releases/download/v${VERSION}/k8sgpt_Linux_arm64.tar.gz"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o "output.tar.gz" \
+          && tar -xf ./output.tar.gz \
+          && mv k8sgpt /usr/local/bin/ \
+          && cd && rm -rf /tmp/*
