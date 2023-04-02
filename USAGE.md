@@ -30,7 +30,7 @@
 
 `check_updates.sh` script checks for new versions of applications listed in a YAML configuration file, specifically looking for updates on GitHub. It then prints out a list of any applications that have a new version available.
 
-- Run the script with the YAML file as an argument:
+- Run the `check_updates.sh` script:
 
    ```
    ./check_updates.sh
@@ -39,4 +39,3 @@
 - The script will then output a list of any applications with a new version available.
 
 - If there are any non-GitHub URLs listed in the YAML file, the script will also print a list of them at the end.
-
