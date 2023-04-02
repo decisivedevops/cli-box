@@ -20,8 +20,3 @@ for app_name in $app_names; do
   # Add the app information to the ${APPLIST} file
   echo "| $app_name | $version | $changelog |" >> ${APPLIST}
 done
-
-# Transcrypt pre-commit hook: fail if secret file in staging lacks the magic prefix "Salted" in B64
-RELATIVE_GIT_DIR=$(git rev-parse --git-dir 2>/dev/null || printf '')
-CRYPT_DIR=$(git config transcrypt.crypt-dir 2>/dev/null || printf '%s/crypt' "${RELATIVE_GIT_DIR}")
-"${CRYPT_DIR}/transcrypt" pre_commit
