@@ -28,3 +28,6 @@ starship init fish | source
 
 # ls
 alias ll="ls -ltr"
+
+# tmux
+alias tmux="tmux -f /home/root/tmux.conf"
