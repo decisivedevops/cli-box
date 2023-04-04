@@ -74,8 +74,7 @@ cd cli-box
 
 ```yaml
 image_name: decisivedevops/cli-box
-
-base_image: bitnami/minideb:buster
+base_image: ubuntu:22.04
 base_image_build: |
   apt update \
       && apt install -y ncurses-bin
