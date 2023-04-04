@@ -197,3 +197,15 @@ apps:
           && tar -xf ./output.tar.gz \
           && mv k8sgpt /usr/local/bin/ \
           && cd && rm -rf /tmp/*
+
+  just:
+    changelog: https://github.com/casey/just/releases/
+    replacements: "VERSION=1.13.0"
+    amd64_url: "https://github.com/casey/just/releases/download/${VERSION}/just-${VERSION}-x86_64-unknown-linux-musl.tar.gz"
+    arm64_url: "https://github.com/casey/just/releases/download/${VERSION}/just-${VERSION}-aarch64-unknown-linux-musl.tar.gz"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o "output.tar.gz" \
+          && tar -xf ./output.tar.gz \
+          && mv just /usr/local/bin/ \
+          && cd && rm -rf /tmp/*
