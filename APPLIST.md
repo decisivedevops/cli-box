@@ -16,3 +16,4 @@
 | stern | 1.24.0 | https://github.com/stern/stern/releases |
 | starship | 1.13.1 | https://github.com/starship/starship/releases |
 | k8sgpt | 0.1.6 | https://github.com/k8sgpt-ai/k8sgpt/releases/ |
+| just | 1.13.0 | https://github.com/casey/just/releases/ |
