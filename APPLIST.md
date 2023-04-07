@@ -17,3 +17,4 @@
 | starship | 1.13.1 | https://github.com/starship/starship/releases |
 | k8sgpt | 0.1.6 | https://github.com/k8sgpt-ai/k8sgpt/releases/ |
 | just | 1.13.0 | https://github.com/casey/just/releases/ |
+| aws-sso-cli | 1.9.10 | https://github.com/synfinatic/aws-sso-cli/releases |
