@@ -188,7 +188,7 @@ apps:
 
   k8sgpt:
     changelog: https://github.com/k8sgpt-ai/k8sgpt/releases/
-    replacements: "VERSION=0.1.6"
+    replacements: "VERSION=0.2.0"
     amd64_url: "https://github.com/k8sgpt-ai/k8sgpt/releases/download/v${VERSION}/k8sgpt_Linux_x86_64.tar.gz"
     arm64_url: "https://github.com/k8sgpt-ai/k8sgpt/releases/download/v${VERSION}/k8sgpt_Linux_arm64.tar.gz"
     install: |
