@@ -1,11 +1,12 @@
-# fish config
-set -g fish_greeting
+# zsh configuration
+HISTFILE=/root/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
-# User configuration
+# motd
 cat /home/root/motd
-
-# granted assume
-alias assume="source /usr/local/bin/assume.fish"
 
 # kubectl
 alias k=kubectl
@@ -24,10 +25,13 @@ alias aws-vault='aws-vault --backend=file'
 
 # starship
 export STARSHIP_CONFIG=/home/root/starship.toml
-starship init fish | source
+eval "$(starship init zsh)"
 
 # ls
 alias ll="ls -ltr"
 
-# tmux
-alias tmux="tmux -f /home/root/tmux.conf"
+# enhan/cd
+source /home/root/enhancd/init.sh
+
+# zsh-autocomplete
+source /home/root/zsh-autocomplete-*/zsh-autocomplete.plugin.zsh

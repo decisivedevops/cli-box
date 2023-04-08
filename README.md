@@ -26,13 +26,13 @@ The script uses a configuration file in YAML format, where you can specify the b
   - For `amd64`, `x86_64` system:
 
 ```bash
-docker run -it -v $HOME:/root --network host decisivedevops/cli-box:amd64-latest fish
+docker run -it -v $HOME:/root --network host decisivedevops/cli-box:amd64-latest zsh
 ```
 
 - For `aarch64` , `arm64` system:
 
 ```bash
-docker run -it -v $HOME:/root --network host decisivedevops/cli-box:arm64-latest fish
+docker run -it -v $HOME:/root --network host decisivedevops/cli-box:arm64-latest zsh
 ```
 
   - To persist the config files for CLI tools, local `$HOME` directory is mounted as a volume inside the Docker container at `/root`.

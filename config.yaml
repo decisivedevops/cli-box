@@ -5,20 +5,21 @@ base_image_build: |
   ENV TZ=Asia/Kolkata
   WORKDIR /home/root/
   RUN apt update \
-      && apt install -y git vim curl unzip fish ncurses-bin less jq tmux \
-      && chsh -s /usr/bin/fish \
+      && apt install -y git vim curl unzip zsh ncurses-bin less jq tmux \
+      && chsh -s /usr/bin/zsh \
+      && sed -i '1 i\export ZDOTDIR=/home/root' /etc/zsh/zshrc \
       && apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 apps:
-  granted:
-    changelog: https://github.com/common-fate/granted/releases
-    replacements: "VERSION=0.9.1"
-    amd64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_x86_64.tar.gz"
-    arm64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_arm64.tar.gz"
-    install: |
-      curl -sSL ${URL} -o granted.tar.gz \
-          && tar -zxvf ./granted.tar.gz -C /usr/local/bin/ \
-          && rm granted.tar.gz
+  # granted:
+  #   changelog: https://github.com/common-fate/granted/releases
+  #   replacements: "VERSION=0.9.1"
+  #   amd64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_x86_64.tar.gz"
+  #   arm64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_arm64.tar.gz"
+  #   install: |
+  #     curl -sSL ${URL} -o granted.tar.gz \
+  #         && tar -zxvf ./granted.tar.gz -C /usr/local/bin/ \
+  #         && rm granted.tar.gz
 
   kubectl:
     changelog: https://kubernetes.io/releases/patch-releases/
@@ -221,3 +222,26 @@ apps:
           && chmod +x sso \
           && mv sso /usr/local/bin/ \
           && cd && rm -rf /tmp/*
+
+  enhan/cd:
+    changelog: https://github.com/b4b4r07/enhancd/tags
+    replacements: "VERSION=2.3.0"
+    amd64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
+    arm64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
+    install: |
+      curl -sSL ${URL} -o "/home/root/output.tar.gz" \
+          && tar -xf ./output.tar.gz \
+          && rm ./output.tar.gz \
+          && mv enhancd-* enhancd/ \
+          && apt update && apt install -y fzf \
+          && rm -rf /var/lib/apt/lists/*
+
+  zsh-autocomplete:
+    changelog: https://github.com/marlonrichert/zsh-autocomplete/releases/
+    replacements: "VERSION=22.01.21"
+    amd64_url: "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/tags/${VERSION}.tar.gz"
+    arm64_url: "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/tags/${VERSION}.tar.gz"
+    install: |
+      curl -sSL ${URL} -o "zsh-autocomplete.tar.gz" \
+          && tar -vxf ./zsh-autocomplete.tar.gz \
+          && rm ./zsh-autocomplete.tar.gz

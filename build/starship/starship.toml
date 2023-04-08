@@ -4,6 +4,9 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
+# avoid error -  Executing command "/usr/bin/git" timed out
+command_timeout = 10000
+
 # [> ](bold green)$directory$aws$kubernetes$git_branch
 # Use custom format
 format = """
@@ -24,12 +27,12 @@ disabled = true
 [aws]
 format = 'on [$symbol$profile(\($region\))]($style) '
 style = "bold blue"
-symbol = "Ⓐ "
+symbol = "A "
 
 [kubernetes]
 format = 'on [$symbol$context \($namespace\)]($style) '
 style = "bold green"
-symbol = "Ⓚ "
+symbol = "K "
 disabled = false
 
 [directory]

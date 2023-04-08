@@ -9,7 +9,7 @@ dcli:
         *) echo "Unsupported arch: ${ARCH}"; exit 1 ;;
     esac
     docker run -it -v {{justfile_directory()}}/home:/root -v {{home_dir}}:/mnt \
-        --network host decisivedevops/cli-box:${arch}-latest fish -c "tmux"
+        --network host decisivedevops/cli-box:${arch}-latest tmux -f /home/root/tmux.conf
 
 build:
   @{{justfile_directory()}}/cli-box.sh
