@@ -225,7 +225,7 @@ apps:
 
   enhan/cd:
     changelog: https://github.com/b4b4r07/enhancd/tags
-    replacements: "VERSION=2.3.0"
+    replacements: "VERSION=2.5.0"
     amd64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
     arm64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
     install: |

@@ -62,7 +62,6 @@ function main {
 	after_build="
     COPY build/motd .
     COPY build/starship/ .
-    # COPY build/fish/ /etc/fish/
     COPY build/zsh/ .
     COPY build/tmux/ .
     WORKDIR /root
