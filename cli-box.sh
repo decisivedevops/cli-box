@@ -78,7 +78,7 @@ function main {
 --------------------------------------------------------------------
 You can access the CLI tools using the following Docker run command:
 
-docker run -it -v $HOME:/root --network host decisivedevops/cli-box:${ARCH}-latest fish
+docker run -it -v $HOME:/root --network host decisivedevops/cli-box:${ARCH}-latest zsh
 "
 	printf "%s\n" "${PROMPT}"
 }
