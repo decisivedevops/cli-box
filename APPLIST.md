@@ -17,5 +17,5 @@
 | k8sgpt | 0.2.0 | https://github.com/k8sgpt-ai/k8sgpt/releases/ |
 | just | 1.13.0 | https://github.com/casey/just/releases/ |
 | aws-sso-cli | 1.9.10 | https://github.com/synfinatic/aws-sso-cli/releases |
-| enhan/cd | 2.3.0 | https://github.com/b4b4r07/enhancd/tags |
+| enhan/cd | 2.5.0 | https://github.com/b4b4r07/enhancd/tags |
 | zsh-autocomplete | 22.01.21 | https://github.com/marlonrichert/zsh-autocomplete/releases/ |
