@@ -1,6 +1,5 @@
 | App Name | Version | Changelog |
 | :------: | :-----: | :------- |
-| granted | 0.9.1 | https://github.com/common-fate/granted/releases |
 | kubectl | 1.23.17 | https://kubernetes.io/releases/patch-releases/ |
 | aws-vault | 7.2.0 | https://github.com/99designs/aws-vault/releases |
 | aws | 2.9.0 | https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst |
@@ -18,3 +17,5 @@
 | k8sgpt | 0.2.0 | https://github.com/k8sgpt-ai/k8sgpt/releases/ |
 | just | 1.13.0 | https://github.com/casey/just/releases/ |
 | aws-sso-cli | 1.9.10 | https://github.com/synfinatic/aws-sso-cli/releases |
+| enhan/cd | 2.3.0 | https://github.com/b4b4r07/enhancd/tags |
+| zsh-autocomplete | 22.01.21 | https://github.com/marlonrichert/zsh-autocomplete/releases/ |
