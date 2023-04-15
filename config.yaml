@@ -120,7 +120,7 @@ apps:
 
   terragrunt:
     changelog: https://github.com/gruntwork-io/terragrunt/releases
-    replacements: "VERSION=0.43.0"
+    replacements: "VERSION=0.45.0"
     amd64_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_amd64"
     arm64_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_arm64"
     install: |
@@ -155,7 +155,7 @@ apps:
 
   helm:
     changelog: https://github.com/helm/helm/releases
-    replacements: "VERSION=3.11.2"
+    replacements: "VERSION=3.11.3"
     amd64_url: "https://get.helm.sh/helm-v${VERSION}-linux-amd64.tar.gz"
     arm64_url: "https://get.helm.sh/helm-v${VERSION}-linux-arm64.tar.gz"
     install: |
@@ -167,7 +167,7 @@ apps:
 
   stern:
     changelog: https://github.com/stern/stern/releases
-    replacements: "VERSION=1.24.0"
+    replacements: "VERSION=1.25.0"
     amd64_url: "https://github.com/stern/stern/releases/download/v${VERSION}/stern_${VERSION}_linux_amd64.tar.gz"
     arm64_url: "https://github.com/stern/stern/releases/download/v${VERSION}/stern_${VERSION}_linux_arm64.tar.gz"
     install: |
@@ -178,7 +178,7 @@ apps:
 
   starship:
     changelog: https://github.com/starship/starship/releases
-    replacements: "VERSION=1.13.1"
+    replacements: "VERSION=1.14.2"
     amd64_url: "https://github.com/starship/starship/releases/download/v${VERSION}/starship-x86_64-unknown-linux-musl.tar.gz"
     arm64_url: "https://github.com/starship/starship/releases/download/v${VERSION}/starship-aarch64-unknown-linux-musl.tar.gz"
     install: |
@@ -189,7 +189,7 @@ apps:
 
   k8sgpt:
     changelog: https://github.com/k8sgpt-ai/k8sgpt/releases/
-    replacements: "VERSION=0.2.0"
+    replacements: "VERSION=0.2.2"
     amd64_url: "https://github.com/k8sgpt-ai/k8sgpt/releases/download/v${VERSION}/k8sgpt_Linux_x86_64.tar.gz"
     arm64_url: "https://github.com/k8sgpt-ai/k8sgpt/releases/download/v${VERSION}/k8sgpt_Linux_arm64.tar.gz"
     install: |
@@ -225,7 +225,7 @@ apps:
 
   enhan/cd:
     changelog: https://github.com/b4b4r07/enhancd/tags
-    replacements: "VERSION=2.5.0"
+    replacements: "VERSION=2.5.1"
     amd64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
     arm64_url: "https://github.com/b4b4r07/enhancd/archive/refs/tags/v${VERSION}.tar.gz"
     install: |
