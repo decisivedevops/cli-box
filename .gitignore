@@ -203,3 +203,4 @@ dist
 package-lock.json
 package.json
 .nova
+home/.zsh_history
