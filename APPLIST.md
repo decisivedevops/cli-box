@@ -20,3 +20,4 @@
 | zsh-autocomplete | 22.01.21 | https://github.com/marlonrichert/zsh-autocomplete/releases/ |
 | granted | 0.10.0 | https://github.com/common-fate/granted/releases |
 | yq | 4.33.3 | https://github.com/mikefarah/yq/releases |
+| jqp | 0.4.0 | https://github.com/noahgorstein/jqp/releases |
