@@ -201,18 +201,6 @@ apps:
           && mv just /usr/local/bin/ \
           && cd && rm -rf /tmp/*
 
-  # aws-sso-cli:
-  #   changelog: https://github.com/synfinatic/aws-sso-cli/releases
-  #   replacements: "VERSION=1.9.10"
-  #   amd64_url: "https://github.com/synfinatic/aws-sso-cli/releases/download/v${VERSION}/aws-sso-${VERSION}-linux-amd64"
-  #   arm64_url: "https://github.com/synfinatic/aws-sso-cli/releases/download/v${VERSION}/aws-sso-${VERSION}-linux-arm64"
-  #   install: |
-  #     mkdir -p /tmp && cd /tmp \
-  #         && curl -sSL ${URL} -o "sso" \
-  #         && chmod +x sso \
-  #         && mv sso /usr/local/bin/ \
-  #         && cd && rm -rf /tmp/*
-
   enhan/cd:
     changelog: https://github.com/b4b4r07/enhancd/tags
     replacements: "VERSION=2.5.1"
@@ -245,3 +233,12 @@ apps:
       curl -sSL ${URL} -o granted.tar.gz \
           && tar -zxvf ./granted.tar.gz -C /usr/local/bin/ \
           && rm granted.tar.gz
+
+  yq:
+    changelog: https://github.com/mikefarah/yq/releases
+    replacements: "VERSION=4.33.3"
+    amd64_url: "https://github.com/mikefarah/yq/releases/download/v${VERSION}/yq_linux_amd64"
+    arm64_url: "https://github.com/mikefarah/yq/releases/download/v${VERSION}/yq_linux_arm64"
+    install: |
+      curl -sSL ${URL} -o /usr/local/bin/yq \
+          && chmod +x /usr/local/bin/yq
