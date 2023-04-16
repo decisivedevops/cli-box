@@ -561,6 +561,15 @@ cli_box_update_parse_requirements() {
     esac
   done
 
+  # :command.dependencies_filter
+  if command -v jq >/dev/null 2>&1; then
+    deps['jq']="$(command -v jq | head -n1)"
+  else
+    printf "missing dependency: jq\n" >&2
+    printf "%s\n" "see 'https://stedolan.github.io/jq/download/'" >&2
+    exit 1
+  fi
+
   # :command.command_filter
   action="update"
 

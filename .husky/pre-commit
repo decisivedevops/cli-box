@@ -6,8 +6,8 @@ YAML_FILE="config.yaml"
 APPLIST="APPLIST.md"
 
 # Create the APPLIST.md file and write the table header
-echo "| App Name | Version | Changelog |" > ${APPLIST}
-echo "| :------: | :-----: | :------- |" >> ${APPLIST}
+echo "| App Name | Version | Changelog |" >${APPLIST}
+echo "| :------: | :-----: | :------- |" >>${APPLIST}
 
 # Get the list of app names
 app_names=$(yq e '.apps | keys | .[]' "$YAML_FILE")
@@ -18,5 +18,8 @@ for app_name in $app_names; do
   changelog=$(yq e ".apps.$app_name.changelog" "$YAML_FILE")
 
   # Add the app information to the ${APPLIST} file
-  echo "| $app_name | $version | $changelog |" >> ${APPLIST}
+  echo "| $app_name | $version | $changelog |" >>${APPLIST}
 done
+
+# update main script
+bashly generate
