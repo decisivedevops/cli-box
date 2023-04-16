@@ -1,18 +1,15 @@
-#!/usr/bin/env bash
-
 # Read the yaml file and retrieve app information
-yaml_file="config.yaml"
-readarray -t apps < <(yq e '.apps | keys | .[]' "$yaml_file")
+readarray -t apps < <(yq e '.apps | keys | .[]' "$CONFIG_FILE")
 
 # Initialize variables for non-GitHub URLs
 non_github_apps=""
 
 for app in "${apps[@]}"; do
     # Retrieve the current version of the app from the yaml file
-    current_version=$(yq e ".apps.$app.replacements" "$yaml_file" | sed 's/.*VERSION=\(.*\)/\1/')
+    current_version=$(yq e ".apps.$app.replacements" "$CONFIG_FILE" | sed 's/.*VERSION=\(.*\)/\1/')
 
     # Retrieve the changelog URL from the yaml file
-    changelog_url=$(yq e ".apps.$app.changelog" "$yaml_file")
+    changelog_url=$(yq e ".apps.$app.changelog" "$CONFIG_FILE")
 
     # Check if the changelog URL is for GitHub
     if [[ "$changelog_url" == *"github.com"* ]]; then

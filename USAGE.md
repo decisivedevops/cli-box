@@ -30,10 +30,10 @@
 
 `check_updates.sh` script checks for new versions of applications listed in a YAML configuration file, specifically looking for updates on GitHub. It then prints out a list of any applications that have a new version available.
 
-- Run the `check_updates.sh` script:
+- Run the below command:
 
    ```
-   ./check_updates.sh
+   ./cli-box update
    ```
 
 - The script will then output a list of any applications with a new version available.

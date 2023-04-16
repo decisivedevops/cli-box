@@ -1,0 +1,38 @@
+name: cli-box
+help: |
+  cli-box is a bash script that builds a Docker image with a preconfigured environment for CLI tools.
+version: 0.1.0
+environment_variables:
+  - name: CONFIG_FILE
+    help: Location of the config file
+    default: config.yaml
+    private: true
+  - name: DOCKERFILE
+    help: Name of the Dockerfile file
+    default: Dockerfile.build
+    private: true
+  - name: BASE_IMAGE
+    default: $(yq e '.base_image' "${CONFIG_FILE}")
+    help: Read base image from config file
+    private: true
+  - name: BASE_IMAGE_BUILD
+    default: $(yq e '.base_image_build' "${CONFIG_FILE}")
+    help: Read base image build commands from config file
+    private: true
+  - name: IMAGE_NAME
+    default: $(yq e '.image_name' "${CONFIG_FILE}")
+    help: Read cli-box image from config file
+    private: true
+dependencies:
+  docker: see 'https://github.com/decisivedevops/cli-box/blob/main/PREREQUISITES.md#install-docker'
+  yq: see 'https://github.com/decisivedevops/cli-box/blob/main/PREREQUISITES.md#install-yq'
+commands:
+  - name: build
+    alias: b
+    help: Build the cli-box Docker image
+  - name: push
+    alias: p
+    help: Build and push the cli-box Docker image to Docker registry
+  - name: update
+    alias: u
+    help: Check for avialble updates for configured tools

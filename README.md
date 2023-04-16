@@ -58,9 +58,9 @@ git clone https://github.com/decisivedevops/cli-box.git
 cd cli-box
 ```
 - You can update configuration file [config.yaml](config.yaml) to add tools you require.
-- To build `cli-box`, simply run the script:
+- To build `cli-box`, simply run the script with `build` command:
 ```bash
-./cli-box.sh
+./cli-box build
 ```
 
 - Once the Docker image is build, the script outputs a Docker command to access the CLI tools.
