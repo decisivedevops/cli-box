@@ -38,3 +38,5 @@ source /home/root/zsh-autocomplete-*/zsh-autocomplete.plugin.zsh
 
 # granted
 alias assume="source /usr/local/bin/assume"
+export GRANTED_ENABLE_AUTO_REASSUME=true
+
