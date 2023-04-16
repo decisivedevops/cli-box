@@ -11,16 +11,6 @@ base_image_build: |
       && apt-get clean && rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 apps:
-  # granted:
-  #   changelog: https://github.com/common-fate/granted/releases
-  #   replacements: "VERSION=0.9.1"
-  #   amd64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_x86_64.tar.gz"
-  #   arm64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_arm64.tar.gz"
-  #   install: |
-  #     curl -sSL ${URL} -o granted.tar.gz \
-  #         && tar -zxvf ./granted.tar.gz -C /usr/local/bin/ \
-  #         && rm granted.tar.gz
-
   kubectl:
     changelog: https://kubernetes.io/releases/patch-releases/
     replacements: "VERSION=1.23.17 AMD64_OS=linux/amd64 ARM64_OS=linux/arm64"
@@ -211,17 +201,17 @@ apps:
           && mv just /usr/local/bin/ \
           && cd && rm -rf /tmp/*
 
-  aws-sso-cli:
-    changelog: https://github.com/synfinatic/aws-sso-cli/releases
-    replacements: "VERSION=1.9.10"
-    amd64_url: "https://github.com/synfinatic/aws-sso-cli/releases/download/v${VERSION}/aws-sso-${VERSION}-linux-amd64"
-    arm64_url: "https://github.com/synfinatic/aws-sso-cli/releases/download/v${VERSION}/aws-sso-${VERSION}-linux-arm64"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o "sso" \
-          && chmod +x sso \
-          && mv sso /usr/local/bin/ \
-          && cd && rm -rf /tmp/*
+  # aws-sso-cli:
+  #   changelog: https://github.com/synfinatic/aws-sso-cli/releases
+  #   replacements: "VERSION=1.9.10"
+  #   amd64_url: "https://github.com/synfinatic/aws-sso-cli/releases/download/v${VERSION}/aws-sso-${VERSION}-linux-amd64"
+  #   arm64_url: "https://github.com/synfinatic/aws-sso-cli/releases/download/v${VERSION}/aws-sso-${VERSION}-linux-arm64"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o "sso" \
+  #         && chmod +x sso \
+  #         && mv sso /usr/local/bin/ \
+  #         && cd && rm -rf /tmp/*
 
   enhan/cd:
     changelog: https://github.com/b4b4r07/enhancd/tags
@@ -245,3 +235,13 @@ apps:
       curl -sSL ${URL} -o "zsh-autocomplete.tar.gz" \
           && tar -vxf ./zsh-autocomplete.tar.gz \
           && rm ./zsh-autocomplete.tar.gz
+
+  granted:
+    changelog: https://github.com/common-fate/granted/releases
+    replacements: "VERSION=0.10.0"
+    amd64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_x86_64.tar.gz"
+    arm64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_arm64.tar.gz"
+    install: |
+      curl -sSL ${URL} -o granted.tar.gz \
+          && tar -zxvf ./granted.tar.gz -C /usr/local/bin/ \
+          && rm granted.tar.gz

@@ -35,3 +35,6 @@ source /home/root/enhancd/init.sh
 
 # zsh-autocomplete
 source /home/root/zsh-autocomplete-*/zsh-autocomplete.plugin.zsh
+
+# granted
+alias assume="source /usr/local/bin/assume"
