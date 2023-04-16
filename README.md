@@ -44,7 +44,7 @@ docker run -it -v $HOME:/root --network host decisivedevops/cli-box:arm64-latest
 
 ### Requirements
 
-To build `cli-box`, you need to have `Docker` and `yq` installed on your system. Here's how to install them: [PREREQUISITES](PREREQUISITES.md)
+To build and add your own tools to `cli-box`, you need to have `Docker` and `yq` installed on your system. Here's how to install them: [PREREQUISITES](PREREQUISITES.md)
 
 ### Build Steps
 
