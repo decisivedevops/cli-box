@@ -6,7 +6,7 @@ non_github_apps=""
 
 for app in "${apps[@]}"; do
     # Retrieve the current version of the app from the yaml file
-    current_version=$(yq e ".apps.$app.replacements" "$CONFIG_FILE" | sed 's/.*VERSION=\(.*\)/\1/')
+    current_version=$(yq e ".apps.$app.replacements" "$CONFIG_FILE" | sed 's/.*VERSION=\([^[:space:]]*\).*/\1/')
 
     # Retrieve the changelog URL from the yaml file
     changelog_url=$(yq e ".apps.$app.changelog" "$CONFIG_FILE")
@@ -27,11 +27,11 @@ for app in "${apps[@]}"; do
         fi
     else
         # Add the app to the list of non-GitHub URLs
-        non_github_apps+="$changelog_url"$'\n'
+        non_github_apps+="$app: Current Version: $current_version -> $changelog_url"$'\n'
     fi
 done
 
-# Check for non-GitHub URLs
+# Check for non-GitHub Apps
 if [[ -n "$non_github_apps" ]]; then
-    printf "\nNon-GitHub URLs:\n%s" "$non_github_apps"
+    printf "\nNon-GitHub Apps:\n%s" "$non_github_apps"
 fi
