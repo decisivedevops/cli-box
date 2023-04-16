@@ -242,3 +242,15 @@ apps:
     install: |
       curl -sSL ${URL} -o /usr/local/bin/yq \
           && chmod +x /usr/local/bin/yq
+
+  jqp:
+    changelog: https://github.com/noahgorstein/jqp/releases
+    replacements: "VERSION=0.4.0"
+    amd64_url: "https://github.com/noahgorstein/jqp/releases/download/v${VERSION}/jqp_${VERSION}_Linux_x86_64.tar.gz "
+    arm64_url: "https://github.com/noahgorstein/jqp/releases/download/v${VERSION}/jqp_${VERSION}_Linux_arm64.tar.gz"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o "output.tar.gz" \
+          && tar -xf ./output.tar.gz \
+          && mv jqp /usr/local/bin/ \
+          && cd && rm -rf /tmp/*
