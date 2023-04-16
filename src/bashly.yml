@@ -36,3 +36,5 @@ commands:
   - name: update
     alias: u
     help: Check for avialble updates for configured tools
+    dependencies:
+      jq: see 'https://stedolan.github.io/jq/download/'
