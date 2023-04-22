@@ -110,7 +110,7 @@ apps:
 
   terragrunt:
     changelog: https://github.com/gruntwork-io/terragrunt/releases
-    replacements: "VERSION=0.45.0"
+    replacements: "VERSION=0.45.4"
     amd64_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_amd64"
     arm64_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_arm64"
     install: |
@@ -179,7 +179,7 @@ apps:
 
   k8sgpt:
     changelog: https://github.com/k8sgpt-ai/k8sgpt/releases/
-    replacements: "VERSION=0.2.2"
+    replacements: "VERSION=0.2.4"
     amd64_url: "https://github.com/k8sgpt-ai/k8sgpt/releases/download/v${VERSION}/k8sgpt_Linux_x86_64.tar.gz"
     arm64_url: "https://github.com/k8sgpt-ai/k8sgpt/releases/download/v${VERSION}/k8sgpt_Linux_arm64.tar.gz"
     install: |
@@ -226,7 +226,7 @@ apps:
 
   granted:
     changelog: https://github.com/common-fate/granted/releases
-    replacements: "VERSION=0.10.0"
+    replacements: "VERSION=0.11.1"
     amd64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_x86_64.tar.gz"
     arm64_url: "https://releases.commonfate.io/granted/v${VERSION}/granted_${VERSION}_linux_arm64.tar.gz"
     install: |

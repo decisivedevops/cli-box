@@ -6,7 +6,7 @@ function generate_dockerfile {
   ${BASE_IMAGE_BUILD}
   "
   # Write the contents of the Dockerfile to a file
-  printf "%s\n" "${DOCKERFILE_CONTENTS}" >${DOCKERFILE}
+  printf "%s\n" "${DOCKERFILE_CONTENTS}" >"${DOCKERFILE}"
 
   # Install apps
   for app in $(yq e '.apps | keys | .[]' "${CONFIG_FILE}"); do
@@ -24,5 +24,5 @@ function generate_dockerfile {
     WORKDIR /root
     "
   # Write the contents of the Dockerfile to a file
-  printf "%s\n" "${after_build}" >>${DOCKERFILE}
+  printf "%s\n" "${after_build}" >>"${DOCKERFILE}"
 }

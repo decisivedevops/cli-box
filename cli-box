@@ -215,7 +215,7 @@ function generate_dockerfile {
   ${BASE_IMAGE_BUILD}
   "
   # Write the contents of the Dockerfile to a file
-  printf "%s\n" "${DOCKERFILE_CONTENTS}" >${DOCKERFILE}
+  printf "%s\n" "${DOCKERFILE_CONTENTS}" >"${DOCKERFILE}"
 
   # Install apps
   for app in $(yq e '.apps | keys | .[]' "${CONFIG_FILE}"); do
@@ -233,7 +233,7 @@ function generate_dockerfile {
     WORKDIR /root
     "
   # Write the contents of the Dockerfile to a file
-  printf "%s\n" "${after_build}" >>${DOCKERFILE}
+  printf "%s\n" "${after_build}" >>"${DOCKERFILE}"
 }
 
 # src/lib/get_system_arch.sh
@@ -255,7 +255,7 @@ function get_system_arch {
 function install_tool {
   install_commands=$(echo "${2}" | sed "s#\${URL}#${1}#g")
   # Build app image
-  printf 'RUN %s\n' "$install_commands" >>${DOCKERFILE}
+  printf 'RUN %s\n' "$install_commands" >>"${DOCKERFILE}"
 }
 
 # src/lib/replace_variables.sh
@@ -277,8 +277,8 @@ cli_box_build_command() {
   # src/build_command.sh
   ARCH=$(get_system_arch)
   generate_dockerfile
-  docker build -t "${IMAGE_NAME}:${ARCH}"-latest -f ${DOCKERFILE} .
-  rm ${DOCKERFILE}
+  docker build -t "${IMAGE_NAME}:${ARCH}"-latest -f "${DOCKERFILE}" .
+  rm "${DOCKERFILE}"
 
   # Print prompt for user
   readonly PROMPT="--------------------------------------------------------------------
@@ -295,8 +295,8 @@ cli_box_push_command() {
   # src/push_command.sh
   ARCH=$(get_system_arch)
   generate_dockerfile
-  docker build -t "${IMAGE_NAME}:${ARCH}"-latest -f ${DOCKERFILE} .
-  rm ${DOCKERFILE}
+  docker build -t "${IMAGE_NAME}:${ARCH}"-latest -f "${DOCKERFILE}" .
+  rm "${DOCKERFILE}"
   docker push "${IMAGE_NAME}:${ARCH}"-latest
 
 }

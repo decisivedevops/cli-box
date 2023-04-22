@@ -1,7 +1,7 @@
 ARCH=$(get_system_arch)
 generate_dockerfile
-docker build -t "${IMAGE_NAME}:${ARCH}"-latest -f ${DOCKERFILE} .
-rm ${DOCKERFILE}
+docker build -t "${IMAGE_NAME}:${ARCH}"-latest -f "${DOCKERFILE}" .
+rm "${DOCKERFILE}"
 
 # Print prompt for user
 readonly PROMPT="--------------------------------------------------------------------
