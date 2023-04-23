@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+current_branch=$(git symbolic-ref --short HEAD)
+
+if [ "$current_branch" != "main" ]; then
+  echo "You can only push to the main branch."
+  exit 1
+fi
+
+exit 0
