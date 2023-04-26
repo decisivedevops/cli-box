@@ -14,7 +14,7 @@
 | helm | 3.11.3 | https://github.com/helm/helm/releases |
 | stern | 1.25.0 | https://github.com/stern/stern/releases |
 | starship | 1.14.2 | https://github.com/starship/starship/releases |
-| k8sgpt | 0.2.4 | https://github.com/k8sgpt-ai/k8sgpt/releases/ |
+| k8sgpt | 0.2.7 | https://github.com/k8sgpt-ai/k8sgpt/releases/ |
 | just | 1.13.0 | https://github.com/casey/just/releases/ |
 | enhan/cd | 2.5.1 | https://github.com/b4b4r07/enhancd/tags |
 | zsh-autocomplete | 22.01.21 | https://github.com/marlonrichert/zsh-autocomplete/releases/ |
