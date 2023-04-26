@@ -179,7 +179,7 @@ apps:
 
   k8sgpt:
     changelog: https://github.com/k8sgpt-ai/k8sgpt/releases/
-    replacements: "VERSION=0.2.4"
+    replacements: "VERSION=0.2.7"
     amd64_url: "https://github.com/k8sgpt-ai/k8sgpt/releases/download/v${VERSION}/k8sgpt_Linux_x86_64.tar.gz"
     arm64_url: "https://github.com/k8sgpt-ai/k8sgpt/releases/download/v${VERSION}/k8sgpt_Linux_arm64.tar.gz"
     install: |
@@ -246,7 +246,7 @@ apps:
   jqp:
     changelog: https://github.com/noahgorstein/jqp/releases
     replacements: "VERSION=0.4.0"
-    amd64_url: "https://github.com/noahgorstein/jqp/releases/download/v${VERSION}/jqp_${VERSION}_Linux_x86_64.tar.gz "
+    amd64_url: "https://github.com/noahgorstein/jqp/releases/download/v${VERSION}/jqp_${VERSION}_Linux_x86_64.tar.gz"
     arm64_url: "https://github.com/noahgorstein/jqp/releases/download/v${VERSION}/jqp_${VERSION}_Linux_arm64.tar.gz"
     install: |
       mkdir -p /tmp && cd /tmp \
