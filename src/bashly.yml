@@ -27,6 +27,9 @@ dependencies:
   docker: see 'https://github.com/decisivedevops/cli-box/blob/main/PREREQUISITES.md#install-docker'
   yq: see 'https://github.com/decisivedevops/cli-box/blob/main/PREREQUISITES.md#install-yq'
 commands:
+  - name: start
+    alias: s
+    help: Start cli-box Docker container
   - name: build
     alias: b
     help: Build the cli-box Docker image

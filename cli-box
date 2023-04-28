@@ -37,6 +37,7 @@ cli_box_usage() {
   echo
   # :command.usage_commands
   printf "%s\n" "Commands:"
+  printf "  %s   Start cli-box Docker container\n" "start "
   printf "  %s   Build the cli-box Docker image\n" "build "
   printf "  %s   Build and push the cli-box Docker image to Docker registry\n" "push  "
   printf "  %s   Check for avialble updates for configured tools\n" "update"
@@ -52,6 +53,38 @@ cli_box_usage() {
     echo
     printf "  %s\n" "--version, -v"
     printf "    Show version number\n"
+    echo
+
+  fi
+}
+
+# :command.usage
+cli_box_start_usage() {
+  if [[ -n $long_usage ]]; then
+    printf "cli-box start - Start cli-box Docker container\n"
+    echo
+
+  else
+    printf "cli-box start - Start cli-box Docker container\n"
+    echo
+
+  fi
+
+  printf "Alias: s\n"
+  echo
+
+  printf "%s\n" "Usage:"
+  printf "  cli-box start\n"
+  printf "  cli-box start --help | -h\n"
+  echo
+
+  # :command.long_usage
+  if [[ -n $long_usage ]]; then
+    printf "%s\n" "Options:"
+
+    # :command.usage_fixed_flags
+    printf "  %s\n" "--help, -h"
+    printf "    Show this help\n"
     echo
 
   fi
@@ -273,6 +306,14 @@ function replace_variables {
 
 # :command.command_functions
 # :command.function
+cli_box_start_command() {
+  # src/start_command.sh
+  ARCH=$(get_system_arch)
+  docker run -it -v $HOME:/root --network host decisivedevops/cli-box:${ARCH}-latest zsh
+
+}
+
+# :command.function
 cli_box_build_command() {
   # src/build_command.sh
   ARCH=$(get_system_arch)
@@ -284,7 +325,7 @@ cli_box_build_command() {
   readonly PROMPT="--------------------------------------------------------------------
   You can access the CLI tools using the following Docker run command:
 
-  docker run -it -v $HOME:/root --network host decisivedevops/cli-box:${ARCH}-latest zsh\
+      ./cli-box start\
   "
   printf "%s\n" "${PROMPT}"
 
@@ -398,6 +439,13 @@ parse_requirements() {
   case $action in
     -*) ;;
 
+    start | s)
+      action="start"
+      shift
+      cli_box_start_parse_requirements "$@"
+      shift $#
+      ;;
+
     build | b)
       action="build"
       shift
@@ -431,6 +479,50 @@ parse_requirements() {
       ;;
 
   esac
+
+  # :command.parse_requirements_while
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case "$key" in
+
+      -?*)
+        printf "invalid option: %s\n" "$key" >&2
+        exit 1
+        ;;
+
+      *)
+        # :command.parse_requirements_case
+        # :command.parse_requirements_case_simple
+        printf "invalid argument: %s\n" "$key" >&2
+        exit 1
+
+        ;;
+
+    esac
+  done
+
+}
+
+# :command.parse_requirements
+cli_box_start_parse_requirements() {
+  # :command.fixed_flags_filter
+  while [[ $# -gt 0 ]]; do
+    case "${1:-}" in
+      --help | -h)
+        long_usage=yes
+        cli_box_start_usage
+        exit
+        ;;
+
+      *)
+        break
+        ;;
+
+    esac
+  done
+
+  # :command.command_filter
+  action="start"
 
   # :command.parse_requirements_while
   while [[ $# -gt 0 ]]; do
@@ -621,6 +713,7 @@ run() {
   parse_requirements "${input[@]}"
 
   case "$action" in
+    "start") cli_box_start_command ;;
     "build") cli_box_build_command ;;
     "push") cli_box_push_command ;;
     "update") cli_box_update_command ;;
