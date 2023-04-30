@@ -254,3 +254,15 @@ apps:
           && tar -xf ./output.tar.gz \
           && mv jqp /usr/local/bin/ \
           && cd && rm -rf /tmp/*
+
+  hetznercloud:
+    changelog: https://github.com/hetznercloud/cli/releases
+    replacements: "VERSION=1.33.1"
+    amd64_url: "https://github.com/hetznercloud/cli/releases/download/v${VERSION}/hcloud-linux-amd64.tar.gz"
+    arm64_url: "https://github.com/hetznercloud/cli/releases/download/v${VERSION}/hcloud-linux-arm64.tar.gz"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o "output.tar.gz" \
+          && tar -xf ./output.tar.gz \
+          && mv hcloud /usr/local/bin/ \
+          && cd && rm -rf /tmp/*
