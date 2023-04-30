@@ -21,3 +21,4 @@
 | granted | 0.11.1 | https://github.com/common-fate/granted/releases |
 | yq | 4.33.3 | https://github.com/mikefarah/yq/releases |
 | jqp | 0.4.0 | https://github.com/noahgorstein/jqp/releases |
+| hetznercloud | 1.33.1 | https://github.com/hetznercloud/cli/releases |
