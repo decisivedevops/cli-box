@@ -204,3 +204,4 @@ package-lock.json
 package.json
 .nova
 home/.zsh_history
+home/.config/hcloud/cli.toml
