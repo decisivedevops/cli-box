@@ -17,7 +17,7 @@
 | k8sgpt | 0.2.7 | https://github.com/k8sgpt-ai/k8sgpt/releases/ |
 | just | 1.13.0 | https://github.com/casey/just/releases/ |
 | enhan/cd | 2.5.1 | https://github.com/b4b4r07/enhancd/tags |
-| zsh-autocomplete | 22.01.21 | https://github.com/marlonrichert/zsh-autocomplete/releases/ |
+| zsh-autocomplete | 23.05.02 | https://github.com/marlonrichert/zsh-autocomplete/releases/ |
 | granted | 0.11.1 | https://github.com/common-fate/granted/releases |
 | yq | 4.33.3 | https://github.com/mikefarah/yq/releases |
 | jqp | 0.4.0 | https://github.com/noahgorstein/jqp/releases |
