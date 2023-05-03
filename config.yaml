@@ -266,3 +266,14 @@ apps:
           && tar -xf ./output.tar.gz \
           && mv hcloud /usr/local/bin/ \
           && cd && rm -rf /tmp/*
+
+  kompose:
+    changelog: https://github.com/kubernetes/kompose/releases
+    replacements: "VERSION=1.28.0"
+    amd64_url: "https://github.com/kubernetes/kompose/releases/download/v${VERSION}/kompose-linux-amd64"
+    arm64_url: "https://github.com/kubernetes/kompose/releases/download/v${VERSION}/kompose-linux-arm64"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o /usr/local/bin/kompose \
+          && chmod +x /usr/local/bin/kompose \
+          && cd && rm -rf /tmp/*
