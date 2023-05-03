@@ -63,7 +63,7 @@ cd cli-box
 ./cli-box build
 ```
 
-- Once the Docker image is build, the script outputs a Docker command to access the CLI tools.
+- Once the Docker image is build, the script outputs a command to access the CLI tools.
 
 > Refer to [USAGE.md](USAGE.md) file to know how I am using the `cli-box` along with few other useful tools.
 
