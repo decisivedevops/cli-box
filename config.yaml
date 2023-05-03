@@ -216,7 +216,7 @@ apps:
 
   zsh-autocomplete:
     changelog: https://github.com/marlonrichert/zsh-autocomplete/releases/
-    replacements: "VERSION=22.01.21"
+    replacements: "VERSION=23.05.02"
     amd64_url: "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/tags/${VERSION}.tar.gz"
     arm64_url: "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/tags/${VERSION}.tar.gz"
     install: |

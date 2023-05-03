@@ -1,5 +1,5 @@
 | App Name | Version | Changelog |
-| :------: | :-----: | :------- |
+| :------ | :-----: | :------- |
 | kubectl | 1.23.17 | https://kubernetes.io/releases/patch-releases/ |
 | aws-vault | 7.2.0 | https://github.com/99designs/aws-vault/releases |
 | aws | 2.9.0 | https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst |

@@ -46,6 +46,35 @@ docker run -it -v $HOME:/root --network host decisivedevops/cli-box:arm64-latest
 
 To build and add your own tools to `cli-box`, you need to have `Docker` and `yq` installed on your system. Here's how to install them: [PREREQUISITES](PREREQUISITES.md)
 
+### Command Lines Options
+
+```bash
+❯ ./cli-box -h
+cli-box
+
+  cli-box is a bash script that builds a Docker image with a preconfigured
+  environment for CLI tools.
+
+Usage:
+  cli-box COMMAND
+  cli-box [COMMAND] --help | -h
+  cli-box --version | -v
+
+Commands:
+  start    Start cli-box Docker container
+  build    Build the cli-box Docker image
+  push     Build and push the cli-box Docker image to Docker registry
+  update   Check for avialble updates for configured tools
+
+Options:
+  --help, -h
+    Show this help
+
+  --version, -v
+    Show version number
+
+```
+
 ### Build Steps
 
 - Clone this repository on your local machine.

@@ -7,7 +7,7 @@ APPLIST="APPLIST.md"
 
 # Create the APPLIST.md file and write the table header
 echo "| App Name | Version | Changelog |" >${APPLIST}
-echo "| :------: | :-----: | :------- |" >>${APPLIST}
+echo "| :------ | :-----: | :------- |" >>${APPLIST}
 
 # Get the list of app names
 app_names=$(yq e '.apps | keys | .[]' "$YAML_FILE")
