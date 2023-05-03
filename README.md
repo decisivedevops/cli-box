@@ -56,7 +56,7 @@ To build and add your own tools to `cli-box`, you need to have `Docker` and `yq`
 
 ### Command Lines Options
 
-```bash
+```
 ❯ ./cli-box -h
 cli-box
 
