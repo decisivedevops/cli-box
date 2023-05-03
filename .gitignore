@@ -1,23 +1,6 @@
 .github
-home/.kube/cache/*
-home/.kube/http-cache/*
-home/.granted/secure-storage-aws-sso-tokens/**
-home/.kube/kubens/**
-home/.awsvault/keys/**
-home/.local/share/nvim/shada/main.shada
-home/.viminfo
-home/.cache/**
-home/.ssh/known_hosts
-home/.ssh/known_hosts.old
-home/.config/fish
-home/.local/share/fish
-home/.launchpadlib
-home/.python_history
-home/.aws/credentials
+home
 aws2tf-0.1.4
-home/.terraform.d
-home/.bash_history
-home/.npm/
 # Created by https://www.toptal.com/developers/gitignore/api/macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos
 
