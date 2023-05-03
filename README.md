@@ -1,6 +1,9 @@
 <p align="center">
     <h1 align="center">cli-box</h1>
-    <b>`cli-box` is a bash script that builds a Docker image with a preconfigured environment for CLI tools.</b><br>
+</p>
+
+<p align="center">
+cli-box is a bash script that builds a Docker image with a preconfigured environment for CLI tools.
 </p>
 
 <p align="center">
