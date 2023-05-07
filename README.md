@@ -18,15 +18,15 @@ cli-box is a bash script that builds a Docker image with a preconfigured environ
    * [Usage](#usage)
    * [Build](#build)
       * [Requirements](#requirements)
-      * [Command Lines Options](#command-lines-options)
       * [Build Steps](#build-steps)
+      * [Command Lines Options](#command-lines-options)
    * [Configuration](#configuration)
          * [Configuration Syntax](#configuration-syntax)
    * [Contributing](#contributing)
    * [License](#license)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: abhinav, at: Sun May  7 11:01:00 IST 2023 -->
+<!-- Added by: abhinav, at: Sun May  7 11:04:41 IST 2023 -->
 
 <!--te-->
 
