@@ -13,7 +13,6 @@ cli-box is a bash script that builds a Docker image with a preconfigured environ
 ## Table of Contents
 <!--ts-->
 * [cli-box](#-cli-box)
-   * [Table of Contents](#table-of-contents)
    * [Description](#description)
    * [Features](#features)
    * [Usage](#usage)
