@@ -74,6 +74,27 @@ docker run -it -v $HOME:/root --network host decisivedevops/cli-box:arm64-latest
 
 To build and add your own tools to `cli-box`, you need to have `Docker` and `yq` installed on your system. Here's how to install them: [PREREQUISITES](PREREQUISITES.md)
 
+### Build Steps
+
+- Clone this repository on your local machine.
+```bash
+git clone https://github.com/decisivedevops/cli-box.git
+```
+
+- `cd` into the cloned directory.
+```bash
+cd cli-box
+```
+- You can update configuration file [config.yaml](config.yaml) to add tools you require.
+- To build `cli-box`, simply run the script with `build` command:
+```bash
+./cli-box build
+```
+
+- Once the Docker image is build, the script outputs a command to access the CLI tools.
+
+> Refer to [USAGE.md](USAGE.md) file to know how I am using the `cli-box` along with few other useful tools.
+
 ### Command Lines Options
 
 ```
@@ -102,27 +123,6 @@ Options:
     Show version number
 
 ```
-
-### Build Steps
-
-- Clone this repository on your local machine.
-```bash
-git clone https://github.com/decisivedevops/cli-box.git
-```
-
-- `cd` into the cloned directory.
-```bash
-cd cli-box
-```
-- You can update configuration file [config.yaml](config.yaml) to add tools you require.
-- To build `cli-box`, simply run the script with `build` command:
-```bash
-./cli-box build
-```
-
-- Once the Docker image is build, the script outputs a command to access the CLI tools.
-
-> Refer to [USAGE.md](USAGE.md) file to know how I am using the `cli-box` along with few other useful tools.
 
 ## Configuration
 
