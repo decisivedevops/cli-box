@@ -23,3 +23,6 @@ done
 
 # update main script
 bashly generate
+
+# update TOC
+./gh-md-toc --insert README.md
