@@ -7,8 +7,27 @@ cli-box is a bash script that builds a Docker image with a preconfigured environ
 </p>
 
 <p align="center">
-    <img src="./assets/cli-box.jpg" width="400" height="400"/>
+    <img src="./assets/cli-box.jpg" width="300" height="300"/>
 </p>
+
+<!--ts-->
+* [cli-box](#-cli-box)
+   * [Description](#description)
+   * [Features](#features)
+   * [Usage](#usage)
+   * [Build](#build)
+      * [Requirements](#requirements)
+      * [Command Lines Options](#command-lines-options)
+      * [Build Steps](#build-steps)
+   * [Configuration](#configuration)
+         * [Configuration Syntax](#configuration-syntax)
+   * [Contributing](#contributing)
+   * [License](#license)
+
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+<!-- Added by: abhinav, at: Sun May  7 10:58:10 IST 2023 -->
+
+<!--te-->
 
 ## Description
 
