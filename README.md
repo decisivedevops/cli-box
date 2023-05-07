@@ -27,7 +27,7 @@ cli-box is a bash script that builds a Docker image with a preconfigured environ
    * [License](#license)
 
 <!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: abhinav, at: Sun May  7 11:05:34 IST 2023 -->
+<!-- Added by: abhinav, at: Sun May  7 11:05:42 IST 2023 -->
 
 <!--te-->
 
