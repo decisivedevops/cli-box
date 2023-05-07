@@ -2,7 +2,7 @@
 
 ## `Docker`
 
-- Install 
+- Install
 
 ```bash
 curl -fsSL https://get.docker.com | bash
@@ -22,17 +22,16 @@ sudo usermod -aG docker $USER
 LATEST_VERSION=$(curl -sL https://api.github.com/repos/mikefarah/yq/releases/latest | jq -r ".tag_name")
 ```
 
-- **Install** 
+- **Install**
 
   - For `amd64`, `x86_64` system:
 
     - ```bash
-      curl -sSL https://github.com/mikefarah/yq/releases/download/${LATEST_VERSION}/yq_linux_amd64 -o /usr/bin/yq && chmod +x /usr/bin/yq
+      sudo curl -sSL https://github.com/mikefarah/yq/releases/download/${LATEST_VERSION}/yq_linux_amd64 -o /usr/bin/yq && sudo chmod +x /usr/bin/yq
       ```
 
   - For `aarch64` , `arm64` system:
-  
-    - ```bash
-      curl -sSL https://github.com/mikefarah/yq/releases/download/${LATEST_VERSION}/yq_linux_arm64 -o /usr/bin/yq && chmod +x /usr/bin/yq
-      ```
 
+    - ```bash
+      sudo curl -sSL https://github.com/mikefarah/yq/releases/download/${LATEST_VERSION}/yq_linux_arm64 -o /usr/bin/yq && sudo chmod +x /usr/bin/yq
+      ```
