@@ -277,3 +277,14 @@ apps:
           && curl -sSL ${URL} -o /usr/local/bin/kompose \
           && chmod +x /usr/local/bin/kompose \
           && cd && rm -rf /tmp/*
+
+  kubie:
+    changelog: https://github.com/sbstp/kubie/releases
+    replacements: "VERSION=0.19.3"
+    amd64_url: "https://github.com/sbstp/kubie/releases/download/v${VERSION}/kubie-linux-amd64"
+    arm64_url: "https://github.com/sbstp/kubie/releases/download/v${VERSION}/kubie-linux-arm64"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o /usr/local/bin/kubie \
+          && chmod +x /usr/local/bin/kubie \
+          && cd && rm -rf /tmp/*
