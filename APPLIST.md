@@ -23,3 +23,4 @@
 | jqp | 0.4.0 | https://github.com/noahgorstein/jqp/releases |
 | hetznercloud | 1.33.1 | https://github.com/hetznercloud/cli/releases |
 | kompose | 1.28.0 | https://github.com/kubernetes/kompose/releases |
+| kubie | 0.19.3 | https://github.com/sbstp/kubie/releases |
