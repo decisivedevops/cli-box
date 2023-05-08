@@ -118,19 +118,19 @@ apps:
           && chmod a+x terragrunt \
           && mv terragrunt /usr/local/bin/terragrunt
 
-  kubectx:
-    changelog: https://github.com/ahmetb/kubectx/releases
-    replacements: "VERSION=0.9.4"
-    amd64_url: "--branch v${VERSION} https://github.com/ahmetb/kubectx"
-    arm64_url: "--branch v${VERSION} https://github.com/ahmetb/kubectx"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && git clone --depth 1 ${URL} \
-          && cd kubectx \
-          && chmod +x kubectx kubens \
-          && mv kubectx /usr/local/bin/ \
-          && mv kubens /usr/local/bin/ \
-          && cd && rm -rf /tmp/*
+  # kubectx:
+  #   changelog: https://github.com/ahmetb/kubectx/releases
+  #   replacements: "VERSION=0.9.4"
+  #   amd64_url: "--branch v${VERSION} https://github.com/ahmetb/kubectx"
+  #   arm64_url: "--branch v${VERSION} https://github.com/ahmetb/kubectx"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && git clone --depth 1 ${URL} \
+  #         && cd kubectx \
+  #         && chmod +x kubectx kubens \
+  #         && mv kubectx /usr/local/bin/ \
+  #         && mv kubens /usr/local/bin/ \
+  #         && cd && rm -rf /tmp/*
 
   aws-session-manager-plugin:
     changelog: https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#plugin-version-history
