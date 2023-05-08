@@ -9,7 +9,6 @@
 | terragrunt-atlantis-config | 1.16.0 | https://github.com/transcend-io/terragrunt-atlantis-config/releases |
 | kustomize | 5.0.1 | https://github.com/kubernetes-sigs/kustomize/releases |
 | terragrunt | 0.45.4 | https://github.com/gruntwork-io/terragrunt/releases |
-| kubectx | 0.9.4 | https://github.com/ahmetb/kubectx/releases |
 | aws-session-manager-plugin | 1.2.463.0 | https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#plugin-version-history |
 | helm | 3.11.3 | https://github.com/helm/helm/releases |
 | stern | 1.25.0 | https://github.com/stern/stern/releases |
