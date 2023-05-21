@@ -7,13 +7,13 @@
 | k9s | 0.27.4 | https://github.com/derailed/k9s/releases |
 | terrafile | 0.8 | https://github.com/coretech/terrafile/releases |
 | terragrunt-atlantis-config | 1.16.0 | https://github.com/transcend-io/terragrunt-atlantis-config/releases |
-| kustomize | 5.0.1 | https://github.com/kubernetes-sigs/kustomize/releases |
-| terragrunt | 0.45.4 | https://github.com/gruntwork-io/terragrunt/releases |
+| kustomize | 5.0.3 | https://github.com/kubernetes-sigs/kustomize/releases |
+| terragrunt | 0.45.25 | https://github.com/gruntwork-io/terragrunt/releases |
 | aws-session-manager-plugin | 1.2.463.0 | https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#plugin-version-history |
 | helm | 3.11.3 | https://github.com/helm/helm/releases |
 | stern | 1.25.0 | https://github.com/stern/stern/releases |
 | starship | 1.14.2 | https://github.com/starship/starship/releases |
-| k8sgpt | 0.2.7 | https://github.com/k8sgpt-ai/k8sgpt/releases/ |
+| k8sgpt | 0.3.3 | https://github.com/k8sgpt-ai/k8sgpt/releases/ |
 | just | 1.13.0 | https://github.com/casey/just/releases/ |
 | enhan/cd | 2.5.1 | https://github.com/b4b4r07/enhancd/tags |
 | zsh-autocomplete | 23.05.02 | https://github.com/marlonrichert/zsh-autocomplete/releases/ |
