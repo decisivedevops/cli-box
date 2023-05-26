@@ -21,15 +21,15 @@ apps:
           && chmod +x kubectl \
           && mv kubectl /usr/local/bin/
 
-  aws-vault:
-    changelog: https://github.com/99designs/aws-vault/releases
-    replacements: "VERSION=7.2.0"
-    amd64_url: "https://github.com/99designs/aws-vault/releases/download/v${VERSION}/aws-vault-linux-amd64"
-    arm64_url: "https://github.com/99designs/aws-vault/releases/download/v${VERSION}/aws-vault-linux-arm64"
-    install: |
-      curl -sSL ${URL} -o aws-vault \
-          && chmod +x aws-vault \
-          && mv aws-vault /usr/local/bin/
+  # aws-vault:
+  #   changelog: https://github.com/99designs/aws-vault/releases
+  #   replacements: "VERSION=7.2.0"
+  #   amd64_url: "https://github.com/99designs/aws-vault/releases/download/v${VERSION}/aws-vault-linux-amd64"
+  #   arm64_url: "https://github.com/99designs/aws-vault/releases/download/v${VERSION}/aws-vault-linux-arm64"
+  #   install: |
+  #     curl -sSL ${URL} -o aws-vault \
+  #         && chmod +x aws-vault \
+  #         && mv aws-vault /usr/local/bin/
 
   aws:
     changelog: https://raw.githubusercontent.com/aws/aws-cli/v2/CHANGELOG.rst
@@ -70,53 +70,53 @@ apps:
           && mv k9s /usr/local/bin/k9s \
           && cd && rm -rf /tmp/*
 
-  terrafile:
-    changelog: https://github.com/coretech/terrafile/releases
-    replacements: "VERSION=0.8"
-    amd64_url: "https://github.com/coretech/terrafile/releases/download/v${VERSION}/terrafile_${VERSION}_Linux_x86_64.tar.gz"
-    arm64_url: "https://github.com/coretech/terrafile/releases/download/v${VERSION}/terrafile_${VERSION}_Linux_arm64.tar.gz"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o "terrafile.tar.gz" \
-          && tar -zxvf ./terrafile.tar.gz \
-          && chmod a+x terrafile \
-          && mv terrafile /usr/local/bin/terrafile \
-          && cd && rm -rf /tmp/*
+  # terrafile:
+  #   changelog: https://github.com/coretech/terrafile/releases
+  #   replacements: "VERSION=0.8"
+  #   amd64_url: "https://github.com/coretech/terrafile/releases/download/v${VERSION}/terrafile_${VERSION}_Linux_x86_64.tar.gz"
+  #   arm64_url: "https://github.com/coretech/terrafile/releases/download/v${VERSION}/terrafile_${VERSION}_Linux_arm64.tar.gz"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o "terrafile.tar.gz" \
+  #         && tar -zxvf ./terrafile.tar.gz \
+  #         && chmod a+x terrafile \
+  #         && mv terrafile /usr/local/bin/terrafile \
+  #         && cd && rm -rf /tmp/*
 
-  terragrunt-atlantis-config:
-    changelog: https://github.com/transcend-io/terragrunt-atlantis-config/releases
-    replacements: "VERSION=1.16.0"
-    amd64_url: "https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${VERSION}/terragrunt-atlantis-config_${VERSION}_linux_amd64.tar.gz"
-    arm64_url: "https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${VERSION}/terragrunt-atlantis-config_${VERSION}_linux_amd64.tar.gz"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o "output.tar.gz" \
-          && tar -xf ./output.tar.gz --strip-components=1 \
-          && mv terragrunt-atlantis-config* terragrunt-atlantis-config \
-          && mv terragrunt-atlantis-config /usr/local/bin/ \
-          && cd && rm -rf /tmp/*
+  # terragrunt-atlantis-config:
+  #   changelog: https://github.com/transcend-io/terragrunt-atlantis-config/releases
+  #   replacements: "VERSION=1.16.0"
+  #   amd64_url: "https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${VERSION}/terragrunt-atlantis-config_${VERSION}_linux_amd64.tar.gz"
+  #   arm64_url: "https://github.com/transcend-io/terragrunt-atlantis-config/releases/download/v${VERSION}/terragrunt-atlantis-config_${VERSION}_linux_amd64.tar.gz"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o "output.tar.gz" \
+  #         && tar -xf ./output.tar.gz --strip-components=1 \
+  #         && mv terragrunt-atlantis-config* terragrunt-atlantis-config \
+  #         && mv terragrunt-atlantis-config /usr/local/bin/ \
+  #         && cd && rm -rf /tmp/*
 
-  kustomize:
-    changelog: https://github.com/kubernetes-sigs/kustomize/releases
-    replacements: "VERSION=5.0.3"
-    amd64_url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${VERSION}/kustomize_v${VERSION}_linux_amd64.tar.gz"
-    arm64_url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${VERSION}/kustomize_v${VERSION}_linux_arm64.tar.gz"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o "output.tar.gz" \
-          && tar -xf ./output.tar.gz \
-          && mv kustomize /usr/local/bin/kustomize \
-          && cd && rm -rf /tmp/*
+  # kustomize:
+  #   changelog: https://github.com/kubernetes-sigs/kustomize/releases
+  #   replacements: "VERSION=5.0.3"
+  #   amd64_url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${VERSION}/kustomize_v${VERSION}_linux_amd64.tar.gz"
+  #   arm64_url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${VERSION}/kustomize_v${VERSION}_linux_arm64.tar.gz"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o "output.tar.gz" \
+  #         && tar -xf ./output.tar.gz \
+  #         && mv kustomize /usr/local/bin/kustomize \
+  #         && cd && rm -rf /tmp/*
 
-  terragrunt:
-    changelog: https://github.com/gruntwork-io/terragrunt/releases
-    replacements: "VERSION=0.45.25"
-    amd64_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_amd64"
-    arm64_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_arm64"
-    install: |
-      curl -sSL ${URL} -o "terragrunt" \
-          && chmod a+x terragrunt \
-          && mv terragrunt /usr/local/bin/terragrunt
+  # terragrunt:
+  #   changelog: https://github.com/gruntwork-io/terragrunt/releases
+  #   replacements: "VERSION=0.45.25"
+  #   amd64_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_amd64"
+  #   arm64_url: "https://github.com/gruntwork-io/terragrunt/releases/download/v${VERSION}/terragrunt_linux_arm64"
+  #   install: |
+  #     curl -sSL ${URL} -o "terragrunt" \
+  #         && chmod a+x terragrunt \
+  #         && mv terragrunt /usr/local/bin/terragrunt
 
   aws-session-manager-plugin:
     changelog: https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html#plugin-version-history
@@ -129,17 +129,17 @@ apps:
           && dpkg -i session-manager-plugin.deb \
           && cd && rm -rf /tmp/*
 
-  helm:
-    changelog: https://github.com/helm/helm/releases
-    replacements: "VERSION=3.11.3"
-    amd64_url: "https://get.helm.sh/helm-v${VERSION}-linux-amd64.tar.gz"
-    arm64_url: "https://get.helm.sh/helm-v${VERSION}-linux-arm64.tar.gz"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o "output.tar.gz" \
-          && tar -xf ./output.tar.gz --strip-components=1 \
-          && mv helm /usr/local/bin/helm \
-          && cd && rm -rf /tmp/*
+  # helm:
+  #   changelog: https://github.com/helm/helm/releases
+  #   replacements: "VERSION=3.11.3"
+  #   amd64_url: "https://get.helm.sh/helm-v${VERSION}-linux-amd64.tar.gz"
+  #   arm64_url: "https://get.helm.sh/helm-v${VERSION}-linux-arm64.tar.gz"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o "output.tar.gz" \
+  #         && tar -xf ./output.tar.gz --strip-components=1 \
+  #         && mv helm /usr/local/bin/helm \
+  #         && cd && rm -rf /tmp/*
 
   stern:
     changelog: https://github.com/stern/stern/releases
@@ -175,17 +175,17 @@ apps:
           && mv k8sgpt /usr/local/bin/ \
           && cd && rm -rf /tmp/*
 
-  just:
-    changelog: https://github.com/casey/just/releases/
-    replacements: "VERSION=1.13.0"
-    amd64_url: "https://github.com/casey/just/releases/download/${VERSION}/just-${VERSION}-x86_64-unknown-linux-musl.tar.gz"
-    arm64_url: "https://github.com/casey/just/releases/download/${VERSION}/just-${VERSION}-aarch64-unknown-linux-musl.tar.gz"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o "output.tar.gz" \
-          && tar -xf ./output.tar.gz \
-          && mv just /usr/local/bin/ \
-          && cd && rm -rf /tmp/*
+  # just:
+  #   changelog: https://github.com/casey/just/releases/
+  #   replacements: "VERSION=1.13.0"
+  #   amd64_url: "https://github.com/casey/just/releases/download/${VERSION}/just-${VERSION}-x86_64-unknown-linux-musl.tar.gz"
+  #   arm64_url: "https://github.com/casey/just/releases/download/${VERSION}/just-${VERSION}-aarch64-unknown-linux-musl.tar.gz"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o "output.tar.gz" \
+  #         && tar -xf ./output.tar.gz \
+  #         && mv just /usr/local/bin/ \
+  #         && cd && rm -rf /tmp/*
 
   enhan/cd:
     changelog: https://github.com/b4b4r07/enhancd/tags
@@ -229,51 +229,51 @@ apps:
       curl -sSL ${URL} -o /usr/local/bin/yq \
           && chmod +x /usr/local/bin/yq
 
-  jqp:
-    changelog: https://github.com/noahgorstein/jqp/releases
-    replacements: "VERSION=0.4.0"
-    amd64_url: "https://github.com/noahgorstein/jqp/releases/download/v${VERSION}/jqp_${VERSION}_Linux_x86_64.tar.gz"
-    arm64_url: "https://github.com/noahgorstein/jqp/releases/download/v${VERSION}/jqp_${VERSION}_Linux_arm64.tar.gz"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o "output.tar.gz" \
-          && tar -xf ./output.tar.gz \
-          && mv jqp /usr/local/bin/ \
-          && cd && rm -rf /tmp/*
+  # jqp:
+  #   changelog: https://github.com/noahgorstein/jqp/releases
+  #   replacements: "VERSION=0.4.0"
+  #   amd64_url: "https://github.com/noahgorstein/jqp/releases/download/v${VERSION}/jqp_${VERSION}_Linux_x86_64.tar.gz"
+  #   arm64_url: "https://github.com/noahgorstein/jqp/releases/download/v${VERSION}/jqp_${VERSION}_Linux_arm64.tar.gz"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o "output.tar.gz" \
+  #         && tar -xf ./output.tar.gz \
+  #         && mv jqp /usr/local/bin/ \
+  #         && cd && rm -rf /tmp/*
 
-  hetznercloud:
-    changelog: https://github.com/hetznercloud/cli/releases
-    replacements: "VERSION=1.33.1"
-    amd64_url: "https://github.com/hetznercloud/cli/releases/download/v${VERSION}/hcloud-linux-amd64.tar.gz"
-    arm64_url: "https://github.com/hetznercloud/cli/releases/download/v${VERSION}/hcloud-linux-arm64.tar.gz"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o "output.tar.gz" \
-          && tar -xf ./output.tar.gz \
-          && mv hcloud /usr/local/bin/ \
-          && cd && rm -rf /tmp/*
+  # hetznercloud:
+  #   changelog: https://github.com/hetznercloud/cli/releases
+  #   replacements: "VERSION=1.33.1"
+  #   amd64_url: "https://github.com/hetznercloud/cli/releases/download/v${VERSION}/hcloud-linux-amd64.tar.gz"
+  #   arm64_url: "https://github.com/hetznercloud/cli/releases/download/v${VERSION}/hcloud-linux-arm64.tar.gz"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o "output.tar.gz" \
+  #         && tar -xf ./output.tar.gz \
+  #         && mv hcloud /usr/local/bin/ \
+  #         && cd && rm -rf /tmp/*
 
-  kompose:
-    changelog: https://github.com/kubernetes/kompose/releases
-    replacements: "VERSION=1.28.0"
-    amd64_url: "https://github.com/kubernetes/kompose/releases/download/v${VERSION}/kompose-linux-amd64"
-    arm64_url: "https://github.com/kubernetes/kompose/releases/download/v${VERSION}/kompose-linux-arm64"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o /usr/local/bin/kompose \
-          && chmod +x /usr/local/bin/kompose \
-          && cd && rm -rf /tmp/*
+  # kompose:
+  #   changelog: https://github.com/kubernetes/kompose/releases
+  #   replacements: "VERSION=1.28.0"
+  #   amd64_url: "https://github.com/kubernetes/kompose/releases/download/v${VERSION}/kompose-linux-amd64"
+  #   arm64_url: "https://github.com/kubernetes/kompose/releases/download/v${VERSION}/kompose-linux-arm64"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o /usr/local/bin/kompose \
+  #         && chmod +x /usr/local/bin/kompose \
+  #         && cd && rm -rf /tmp/*
 
-  kubie:
-    changelog: https://github.com/sbstp/kubie/releases
-    replacements: "VERSION=0.19.3"
-    amd64_url: "https://github.com/sbstp/kubie/releases/download/v${VERSION}/kubie-linux-amd64"
-    arm64_url: "https://github.com/sbstp/kubie/releases/download/v${VERSION}/kubie-linux-arm64"
-    install: |
-      mkdir -p /tmp && cd /tmp \
-          && curl -sSL ${URL} -o /usr/local/bin/kubie \
-          && chmod +x /usr/local/bin/kubie \
-          && cd && rm -rf /tmp/*
+  # kubie:
+  #   changelog: https://github.com/sbstp/kubie/releases
+  #   replacements: "VERSION=0.19.3"
+  #   amd64_url: "https://github.com/sbstp/kubie/releases/download/v${VERSION}/kubie-linux-amd64"
+  #   arm64_url: "https://github.com/sbstp/kubie/releases/download/v${VERSION}/kubie-linux-arm64"
+  #   install: |
+  #     mkdir -p /tmp && cd /tmp \
+  #         && curl -sSL ${URL} -o /usr/local/bin/kubie \
+  #         && chmod +x /usr/local/bin/kubie \
+  #         && cd && rm -rf /tmp/*
 
   # kubectx:
   #   changelog: https://github.com/ahmetb/kubectx/releases
@@ -288,3 +288,15 @@ apps:
   #         && mv kubectx /usr/local/bin/ \
   #         && mv kubens /usr/local/bin/ \
   #         && cd && rm -rf /tmp/*
+
+  atuin:
+    changelog: https://github.com/ellie/atuin/releases/
+    replacements: "VERSION=14.0.1"
+    amd64_url: "https://github.com/ellie/atuin/releases/download/v${VERSION}/atuin-v${VERSION}-x86_64-unknown-linux-musl.tar.gz"
+    arm64_url: "https://github.com/ellie/atuin/releases/download/v${VERSION}/atuin-v${VERSION}-x86_64-unknown-linux-musl.tar.gz"
+    install: |
+      mkdir -p /tmp && cd /tmp \
+          && curl -sSL ${URL} -o "output.tar.gz" \
+          && tar -xf ./output.tar.gz --strip-components=1 \
+          && mv atuin /usr/local/bin/ \
+          && cd && rm -rf /tmp/*

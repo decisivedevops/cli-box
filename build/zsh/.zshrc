@@ -45,3 +45,6 @@ alias ku="kubie"
 
 # start tmux with custom conf
 alias tmux="tmux -f /home/root/tmux.conf"
+
+# atuin
+eval "$(atuin init zsh)"

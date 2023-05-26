@@ -10,7 +10,7 @@ command_timeout = 10000
 # [> ](bold green)$directory$aws$kubernetes$git_branch
 # Use custom format
 format = """
-[> ](bold green)$directory$aws$kubernetes$git_branch$git_status
+[cli-box >](bold green) $directory$aws$kubernetes$git_branch$git_status
 [>](bold green) """
 
 # command_timeout = 10000
